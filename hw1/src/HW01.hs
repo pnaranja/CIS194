@@ -26,13 +26,13 @@ firstDigit x
 
 dropFirstDigit :: Integer -> Integer
 dropFirstDigit x
-    | x < 10                        = 0
+    | x < 10                        = (-1)
     | (n:ns) <- (show x)            = read ns :: Integer
-    | otherwise                     = 0
+    | otherwise                     = (-1)
 
-revDigits :: Integer -> [Integer]
-revDigits 0         = []
-revDigits x         = (firstDigit x) : revDigits (dropFirstDigit x)
+toDigits :: Integer -> [Integer]
+toDigits (-1)         = []
+toDigits x         = (firstDigit x) : toDigits (dropFirstDigit x)
 
 
 -- Exercise 3 -----------------------------------------
