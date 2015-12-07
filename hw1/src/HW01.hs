@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -Wall #-}
 module HW01 where
+import Data.Char
 
 -- Exercise 1 -----------------------------------------
 
@@ -16,6 +17,23 @@ dropLastDigit x     = div x 10
 toRevDigits :: Integer -> [Integer]
 toRevDigits 0       = []
 toRevDigits x       = (lastDigit x) : toRevDigits (dropLastDigit x)
+
+--Create toDigits from scratch
+firstDigit :: Integer -> Integer
+firstDigit x
+    | (n:ns) <- (show x)       = toInteger (digitToInt n)
+    | otherwise                = 0
+
+dropFirstDigit :: Integer -> Integer
+dropFirstDigit x
+    | x < 10                        = 0
+    | (n:ns) <- (show x)            = read ns :: Integer
+    | otherwise                     = 0
+
+revDigits :: Integer -> [Integer]
+revDigits 0         = []
+revDigits x         = (firstDigit x) : revDigits (dropFirstDigit x)
+
 
 -- Exercise 3 -----------------------------------------
 
