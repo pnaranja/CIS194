@@ -39,7 +39,9 @@ toDigits x         = (firstDigit x) : toDigits (dropFirstDigit x)
 
 -- Double every second number in a list starting on the left.
 doubleEveryOther :: [Integer] -> [Integer]
-doubleEveryOther = undefined
+doubleEveryOther []             = []
+doubleEveryOther (x:[])         = [x]
+doubleEveryOther (x:y:xs)       = x: (y*2) : doubleEveryOther xs
 
 -- Exercise 4 -----------------------------------------
 
