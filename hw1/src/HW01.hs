@@ -65,3 +65,9 @@ type Move = (Peg, Peg)
 
 hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
 hanoi = undefined
+
+-- To move n discs (stacked in increasing size) from peg a to peg c
+-- using peg b as temporary storage,
+-- 1. move n - 1 discs from a to b using c as temporary storage
+-- 2. move the top disc from a to c
+-- 3. move n - 1 discs from b to c using a as temporary storage.
