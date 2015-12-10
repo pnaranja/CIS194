@@ -63,11 +63,13 @@ luhn x = mod (sumDigits (doubleEveryOther (toRevDigits x))) 10 == 0
 type Peg = String
 type Move = (Peg, Peg)
 
-hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
-hanoi = undefined
 
 -- To move n discs (stacked in increasing size) from peg a to peg c
 -- using peg b as temporary storage,
 -- 1. move n - 1 discs from a to b using c as temporary storage
 -- 2. move the top disc from a to c
 -- 3. move n - 1 discs from b to c using a as temporary storage.
+
+hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
+hanoi 1 pegStart pegTemp pegEnd     = [(pegStart, pegEnd)]
+hanoi n pegStart pegTemp pegEnd     = hanoi (n-1) pegStart pegEnd pegTemp ++ [(pegStart, pegEnd)] ++ hanoi (n-1) pegTemp pegStart pegEnd
