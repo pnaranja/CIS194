@@ -38,9 +38,11 @@ keepOnlyPositive x = filter (\x->x>=0) x
 
 sum' :: [Integer] -> Integer
 sum' x = foldl (\x y -> x+y) 0 x
+sum'' x = foldl1 (\x y -> x+y) x
 
 product' :: [Integer] -> Integer
 product' x = foldl (\x y -> x*y) 1 x
+product'' x = foldl1 (\x y -> x*y) x
 
 length' :: [Integer] -> Integer
 length' x = foldl (\s _ -> 1+s) 0 x
