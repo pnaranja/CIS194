@@ -59,7 +59,7 @@ dup = map (\x -> x*2)
 dup' x = map (\x -> x*2) x
 
 --Currying and Partial Application
---Currying: Represent multi-argument functionas as 1-argument functions returning functions
+--Currying: Represent multi-argument functions as 1-argument functions returning functions
 mul2PlusY :: Integer -> Integer -> Integer
 mul2PlusY x y = 2*x+y
 
@@ -86,3 +86,4 @@ addPair = uncurry (+)
 --Only map 7x+2 if x>3 in the list and then add all digits in the list
 foobar :: [Integer] -> Integer
 foobar x = (sum . map ((+2) . (*7)) . (filter (\n->n>3))) x
+foobar' = (sum . map ((+2) . (*7)) . (filter (\n->n>3)))    --"point-free" style where definition has no reference to arguments
