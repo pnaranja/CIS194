@@ -23,7 +23,12 @@ colors = [Red, Green, Blue, Yellow, Orange, Purple]
 
 -- Get the number of exact matches between the actual code and the guess
 exactMatches :: Code -> Code -> Int
-exactMatches = undefined
+exactMatches [a] [b]
+    |   a == b                  = 1 
+    |   otherwise               = 0 
+exactMatches (x1:xs1) (x2:xs2)   
+    |   x1 == x2                = 1 + exactMatches xs1 xs2
+    |   otherwise               = exactMatches xs1 xs2
 
 -- Exercise 2 -----------------------------------------
 
