@@ -34,7 +34,7 @@ exactMatches (x1:xs1) (x2:xs2)
 
 -- For each peg in xs, count how many times is occurs in ys
 countColors :: Code -> [Int]
-countColors = undefined
+countColors x = groupBy x
 
 -- Count number of matches between the actual code and the guess
 matches :: Code -> Code -> Int
