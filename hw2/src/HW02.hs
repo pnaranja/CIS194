@@ -32,10 +32,10 @@ exactMatches (x1:xs1) (x2:xs2)
 
 -- Exercise 2 -----------------------------------------
 
--- For each peg in xs, count how many times is occurs in ys
+-- For each peg in xs, count how many times is occurs in ys (colors)
+-- [Int] shall always be length of 6
 countColors :: Code -> [Int]
-countColors [] = [0]
-countColors [a] = [1]
+countColors [] = [0, 0, 0, 0, 0, 0]
 
 -- Count number of matches between the actual code and the guess
 matches :: Code -> Code -> Int
