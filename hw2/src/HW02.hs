@@ -43,7 +43,20 @@ countColor col cod = length $ filter (\x->x==col) cod
 
 -- Count number of matches between the actual code and the guess
 matches :: Code -> Code -> Int
-matches = undefined
+matches c1 c2 = foldl1 (+) (map getMatch (activeTuples $ getTuples c1 c2))
+
+getTuples :: Code -> Code -> [(Int,Int)]
+getTuples c1 c2 = zip (countColors c1) (countColors c2)
+
+activeTuples :: [(Int,Int)] -> [(Int,Int)]
+activeTuples = filter ( \ (x,y) -> x>0 && y>0) 
+
+getMatch :: (Int,Int) -> Int
+getMatch (x,y)
+    | x==y              = x
+    | x<y               = x
+    | x>y               = y
+    | otherwise         = 0
 
 -- Exercise 3 -----------------------------------------
 
