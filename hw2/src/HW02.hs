@@ -38,19 +38,23 @@ countColors :: Code -> [Int]
 countColors [] = [0, 0, 0, 0, 0, 0]
 countColors a = map (\peg->countColor peg a) colors 
 
+-- Helper function: counts a peg color in the code
 countColor :: Peg -> Code -> Int
 countColor col cod = length $ filter (\x->x==col) cod
 
--- Count number of matches between the actual code and the guess
+-- Main Function: Count number of matches between the actual code and the guess
 matches :: Code -> Code -> Int
 matches c1 c2 = foldl1 (+) (map getMatch (activeTuples $ getTuples c1 c2))
 
+-- Helper function: creates peg color tuples from the two Codes
 getTuples :: Code -> Code -> [(Int,Int)]
 getTuples c1 c2 = zip (countColors c1) (countColors c2)
 
+-- Helper function: Filters out (0,0) tuples
 activeTuples :: [(Int,Int)] -> [(Int,Int)]
 activeTuples = filter ( \ (x,y) -> x>0 && y>0) 
 
+-- Helper function: Determines the number of matches given the tuple
 getMatch :: (Int,Int) -> Int
 getMatch (x,y)
     | x==y              = x
@@ -62,7 +66,9 @@ getMatch (x,y)
 
 -- Construct a Move from a guess given the actual code
 getMove :: Code -> Code -> Move
-getMove = undefined
+getMove c1 c2 = Move c2 m1 m2
+    where m1 = exactMatches c1 c2
+          m2 = (matches c1 c2) - m1
 
 -- Exercise 4 -----------------------------------------
 
