@@ -73,7 +73,15 @@ getMove c1 c2 = Move c2 m1 m2
 -- Exercise 4 -----------------------------------------
 
 isConsistent :: Move -> Code -> Bool
-isConsistent = undefined
+isConsistent m c = (extractMatchesFromMove m) ==
+                    (extractMatchesFromMove (getMove (extractCodeFromMove m) c))
+
+extractMatchesFromMove :: Move -> (Int,Int)
+extractMatchesFromMove (Move _ i1 i2) = (i1,i2)
+
+extractCodeFromMove :: Move -> Code
+extractCodeFromMove (Move [x] _ _) = [x]
+extractCodeFromMove (Move _ _ _) = []
 
 -- Exercise 5 -----------------------------------------
 
