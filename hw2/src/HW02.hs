@@ -72,21 +72,26 @@ getMove c1 c2 = Move c2 m1 m2
 
 -- Exercise 4 -----------------------------------------
 
+-- A Code is consistent with a Move if the Code could have
+-- been the secret that generated that move. In other words, if the guess
+-- inside the Move has the same number of exact and non-exact matches
+-- with the provided Code as it did with the actual secret, then the Code
+-- is consistent with the Move.
 isConsistent :: Move -> Code -> Bool
 isConsistent m c = (extractMatchesFromMove m) ==
                     (extractMatchesFromMove (getMove (extractCodeFromMove m) c))
 
+-- Helper extract functions to get the matches and the code from the Move
 extractMatchesFromMove :: Move -> (Int,Int)
 extractMatchesFromMove (Move _ i1 i2) = (i1,i2)
 
 extractCodeFromMove :: Move -> Code
 extractCodeFromMove (Move x _ _) = x
-extractCodeFromMove (Move _ _ _) = []
 
 -- Exercise 5 -----------------------------------------
 
 filterCodes :: Move -> [Code] -> [Code]
-filterCodes = undefined
+filterCodes mv cd = filter (\c -> isConsistent mv c) cd 
 
 -- Exercise 6 -----------------------------------------
 
