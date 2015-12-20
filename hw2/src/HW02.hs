@@ -95,8 +95,11 @@ filterCodes mv cd = filter (\c -> isConsistent mv c) cd
 
 -- Exercise 6 -----------------------------------------
 
+--Take in a length of a code and retrun all the possible Codes for that length!
 allCodes :: Int -> [Code]
-allCodes = undefined
+allCodes 0 = []
+allCodes 1 = [[Red],[Green],[Blue],[Yellow],[Orange],[Purple]]
+
 
 -- Exercise 7 -----------------------------------------
 
