@@ -23,10 +23,10 @@ colors = [Red, Green, Blue, Yellow, Orange, Purple]
 
 -- Get the number of exact matches between the actual code and the guess
 exactMatches :: Code -> Code -> Int
-exactMatches [a] [b]
-    |   a == b                  = 1 
-    |   otherwise               = 0 
-exactMatches (x1:xs1) (x2:xs2)   
+exactMatches [] []              = 0
+exactMatches _ []              = 0
+exactMatches [] _              = 0
+exactMatches (x1:xs1) (x2:xs2)
     |   x1 == x2                = 1 + exactMatches xs1 xs2
     |   otherwise               = exactMatches xs1 xs2
 
@@ -80,7 +80,7 @@ extractMatchesFromMove :: Move -> (Int,Int)
 extractMatchesFromMove (Move _ i1 i2) = (i1,i2)
 
 extractCodeFromMove :: Move -> Code
-extractCodeFromMove (Move [x] _ _) = [x]
+extractCodeFromMove (Move x _ _) = x
 extractCodeFromMove (Move _ _ _) = []
 
 -- Exercise 5 -----------------------------------------
