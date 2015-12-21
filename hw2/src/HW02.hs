@@ -95,10 +95,20 @@ filterCodes mv cd = filter (\c -> isConsistent mv c) cd
 
 -- Exercise 6 -----------------------------------------
 
---Take in a length of a code and retrun all the possible Codes for that length!
+--Take in a length of a code and return all the possible Codes for that length!
+-- Hint:
+-- allCodes 2 = [[Red,Red], [Red,Green], [Red,Blue], [Red,Yellow], [Red,Orange], [Red,Purple]
+--                 [Green,Red], [Green,Green], ...
+
 allCodes :: Int -> [Code]
 allCodes 0 = []
 allCodes 1 = [[Red],[Green],[Blue],[Yellow],[Orange],[Purple]]
+allCodes n = concatMap (\x -> consElem x l) l 
+                where l = allCodes (n-1)
+
+--Helper Function
+consElem :: Code -> [Code] -> [Code]
+consElem x l = map (\y -> x ++ y) l
 
 
 -- Exercise 7 -----------------------------------------
