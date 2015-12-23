@@ -103,15 +103,11 @@ filterCodes mv cd = filter (\c -> isConsistent mv c) cd
 allCodes :: Int -> [Code]
 allCodes 0 = []
 allCodes 1 = [[Red],[Green],[Blue],[Yellow],[Orange],[Purple]]
-allCodes n = concatMap (\x -> consElem x l) l 
-                where l = allCodes (n-1)
+allCodes n = addColors (allCodes (n-1))
 
---Helper Functions
-cartProd :: Code -> Code -> [Code]
-cartProd xs ys = [[x,y] | x <- xs, y <-ys]
-
-consElem :: Code -> [Code] -> [Code]
-consElem x l = map (\y -> x ++ y) l
+--Helper Function
+addColors :: [Code] -> [Code]
+addColors lst = concatMap (\x -> map (\y -> x ++ [y]) colors) lst
 
 
 -- Exercise 7 -----------------------------------------
