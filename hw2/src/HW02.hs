@@ -89,6 +89,7 @@ extractCodeFromMove :: Move -> Code
 extractCodeFromMove (Move x _ _) = x
 
 -- Exercise 5 -----------------------------------------
+--Filter codes that are consistent with a given Move
 
 filterCodes :: Move -> [Code] -> [Code]
 filterCodes mv cd = filter (\c -> isConsistent mv c) cd 
@@ -111,9 +112,20 @@ addColors lst = concatMap (\x -> map (\y -> x ++ [y]) colors) lst
 
 
 -- Exercise 7 -----------------------------------------
+-- Take in secret Code and then output a list of Moves to solve the code
+-- First move will always be [Red,Red,Red,Red]
+-- Dumb Algorithm: Go through the domain of the output and iterate on the consistent Codes until you find the secret Code
+--  -> if notExactMatches: getMove, filterCodes
 
 solve :: Code -> [Move]
-solve = undefined
+solve [] = []
+solve secret
+    | (exactMatches secret guess) == 4   = [getMove secret guess]
+--    otherwise                            = [getMove secret guess] ++ solve (filterCodes (getMove secret guess) gameCodePosibilities)
+    where guess = getNextGuess
+
+getNextGuess = undefined
+gameCodePosibilities = undefined
 
 -- Bonus ----------------------------------------------
 
