@@ -122,9 +122,8 @@ solve [] = []
 solve secret
     | (exactMatches secret guess) == 4   = [getMove secret guess]
 --    otherwise                            = [getMove secret guess] ++ solve (filterCodes (getMove secret guess) gameCodePosibilities)
-    where guess = getNextGuess
+    where guess = head gameCodePosibilities
 
-getNextGuess = undefined
 gameCodePosibilities = undefined
 
 -- Bonus ----------------------------------------------
