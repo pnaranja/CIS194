@@ -124,7 +124,8 @@ solve secret
 --    otherwise                            = [getMove secret guess] ++ solve (filterCodes (getMove secret guess) gameCodePosibilities)
     where guess = head gameCodePosibilities
 
-gameCodePosibilities = undefined
+gameCodePosibilities :: Code -> Code -> [Code]
+gameCodePosibilities secret guess = filterCodes (getMove secret guess) gameCodePosibilities
 
 -- Bonus ----------------------------------------------
 
