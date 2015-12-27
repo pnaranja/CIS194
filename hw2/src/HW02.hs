@@ -52,7 +52,7 @@ getTuples c1 c2 = zip (countColors c1) (countColors c2)
 
 -- Helper function: Filters out (0,0) tuples
 activeTuples :: [(Int,Int)] -> [(Int,Int)]
-activeTuples = filter ( \ (x,y) -> x>0 && y>0) 
+activeTuples = filter ( \ (x,y) -> x>0 || y>0) 
 
 -- Helper function: Determines the number of matches given the tuple
 getMatch :: (Int,Int) -> Int
@@ -119,13 +119,14 @@ addColors lst = concatMap (\x -> map (\y -> x ++ [y]) colors) lst
 
 solve :: Code -> [Move]
 solve [] = []
-solve secret
-    | (exactMatches secret guess) == 4   = [getMove secret guess]
---    otherwise                            = [getMove secret guess] ++ solve (filterCodes (getMove secret guess) gameCodePosibilities)
-    where guess = head gameCodePosibilities
+solve secret = solver secret (head allCodeStart) allCodeStart
+    where allCodeStart = allCodes 4
 
-gameCodePosibilities :: Code -> Code -> [Code]
-gameCodePosibilities secret guess = filterCodes (getMove secret guess) gameCodePosibilities
+solver :: Code -> Code -> [Code] -> [Move]
+solver secret guess codepos
+    | (exactMatches secret guess) == 4   = [getMove secret guess]
+    | otherwise                            = [getMove secret guess] ++ solver secret (head newcodepose) newcodepose
+        where newcodepose = filterCodes (getMove secret guess) codepos 
 
 -- Bonus ----------------------------------------------
 
