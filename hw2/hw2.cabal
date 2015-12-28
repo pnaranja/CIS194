@@ -30,7 +30,7 @@ executable hw2-exe
 test-suite hw2-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
-  main-is:             Spec.hs
+  main-is:             HW02Tests.hs
   build-depends:       base
                      , hw2
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
