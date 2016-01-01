@@ -1,5 +1,6 @@
 module HW03 where
 
+--NOTE: You can also assign Integers to variables!
 data Expression =
     Var String                   -- Variable
   | Val Int                      -- Integer literal
@@ -32,7 +33,8 @@ data Statement =
 type State = String -> Int
 
 -- Exercise 1 -----------------------------------------
-
+-- Store and look up state of a variable
+-- Whenever we assign a variable, we want to update the program State
 extend :: State -> String -> Int -> State
 extend = undefined
 
