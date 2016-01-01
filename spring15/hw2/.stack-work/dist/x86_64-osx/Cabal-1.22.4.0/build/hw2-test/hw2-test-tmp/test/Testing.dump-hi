@@ -1,0 +1,328 @@
+
+==================== FINAL INTERFACE ====================
+2015-12-28 17:50:41.48005 UTC
+
+interface main@main:Testing 7102
+  interface hash: a43f735ed4abefc5860462e1e47af79d
+  ABI hash: 89447255c6c1caa28833b6057ad44c56
+  export-list hash: b5f078e34ce9ed2aa7d6a1581a0e72ac
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: b4595b6634431e4cffc6b25463988a7d
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Testing.runTest
+  Testing.runTests
+  Testing.testF1
+  Testing.testF2
+  Testing.testF3
+  Testing.Failure{Testing.Fail}
+  Testing.Test{Testing.Test}
+module dependencies:
+package dependencies: base-4.8.1.0* ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.1.0:GHC.Base base-4.8.1.0:GHC.Float
+family instance modules: base-4.8.1.0:Control.Applicative
+                         base-4.8.1.0:Data.Either base-4.8.1.0:Data.Monoid
+                         base-4.8.1.0:Data.Type.Equality base-4.8.1.0:GHC.Generics
+import  -/  base-4.8.1.0:Control.Arrow a86256d41b36810396560a9fe956f897
+import  -/  base-4.8.1.0:Data.Maybe 1cb58de2b04ee3c0c0a7dc9201184aff
+import  -/  base-4.8.1.0:Data.Tuple 012ad951a59a9d85fe1de36a2f012986
+import  -/  base-4.8.1.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.1.0:GHC.List f31ed8784b3e05f1397195751f7d74ea
+import  -/  base-4.8.1.0:GHC.Show b8c65ca3124f92a166c9f05120382442
+import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+651ab0632532c2fd11980c819e2a4839
+  $fShowFailure :: GHC.Show.Show Testing.Failure
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Testing.Failure
+                  Testing.$fShowFailure_$cshowsPrec
+                  Testing.$fShowFailure_$cshow
+                  Testing.$fShowFailure_$cshowList -}
+651ab0632532c2fd11980c819e2a4839
+  $fShowFailure_$cshow :: Testing.Failure -> GHC.Base.String
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: (\ ds :: Testing.Failure ->
+                 case ds of wild { Testing.Fail a $dShow s as ->
+                 GHC.CString.unpackAppendCString#
+                   "Failed Test \""#
+                   (GHC.Base.++
+                      @ GHC.Types.Char
+                      s
+                      (GHC.CString.unpackAppendCString#
+                         "\" on inputs "#
+                         (GHC.Show.showList
+                            @ a
+                            $dShow
+                            as
+                            (GHC.Types.[] @ GHC.Types.Char)))) }) -}
+651ab0632532c2fd11980c819e2a4839
+  $fShowFailure_$cshowList :: [Testing.Failure] -> GHC.Show.ShowS
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ ls :: [Testing.Failure] s :: GHC.Base.String ->
+                 GHC.Show.showList__
+                   @ Testing.Failure
+                   (Testing.$fShowFailure_$cshowsPrec GHC.Show.shows18)
+                   ls
+                   s) -}
+651ab0632532c2fd11980c819e2a4839
+  $fShowFailure_$cshowsPrec ::
+    GHC.Types.Int -> Testing.Failure -> GHC.Show.ShowS
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><S,1*U><L,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, True)
+                (\ w :: GHC.Types.Int
+                   w1 :: Testing.Failure
+                   w2 :: GHC.Base.String ->
+                 Testing.$w$cshowsPrec w1 w2) -}
+651ab0632532c2fd11980c819e2a4839
+  $w$cshowsPrec ::
+    Testing.Failure -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ w :: Testing.Failure w1 :: GHC.Base.String ->
+                 case w of wild { Testing.Fail a $dShow s as ->
+                 GHC.CString.unpackAppendCString#
+                   "Failed Test \""#
+                   (GHC.Base.++
+                      @ GHC.Types.Char
+                      s
+                      (GHC.CString.unpackAppendCString#
+                         "\" on inputs "#
+                         (GHC.Base.++
+                            @ GHC.Types.Char
+                            (GHC.Show.showList @ a $dShow as (GHC.Types.[] @ GHC.Types.Char))
+                            w1))) }) -}
+98c7ed677bdb3f2cadb4a1ff830113b7
+  $wtestF1 ::
+    (GHC.Show.Show b, GHC.Classes.Eq b) =>
+    GHC.Base.String -> (a -> b) -> [(a, b)] -> Testing.Test
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A,A)><L,1*U(1*U,A)>, Inline: [0],
+     Unfolding: (\ @ a
+                   @ b
+                   w :: GHC.Show.Show b
+                   w1 :: GHC.Classes.Eq b ->
+                 let {
+                   f :: b -> b -> GHC.Types.Bool = GHC.Classes.== @ b w1
+                 } in
+                 let {
+                   lvl :: (b, b) -> GHC.Types.Bool
+                     {- Arity: 1, Strictness: <L,U(1*U,1*U)>,
+                        Unfolding: InlineRule (1, True, False)
+                                   (\ p :: (b, b) ->
+                                    f (case p of wild { (,) x ds -> x })
+                                      (case p of wild { (,) ds y -> y })) -}
+                   = \ p :: (b, b) ->
+                     f (case p of wild { (,) x ds -> x })
+                       (case p of wild { (,) ds y -> y })
+                 } in
+                 let {
+                   $dShow :: GHC.Show.Show (b, b) = GHC.Show.$fShow(,) @ b @ b w w
+                 } in
+                 \ s :: GHC.Base.String f1 :: a -> b l :: [(a, b)] ->
+                 Testing.Test
+                   @ (b, b)
+                   $dShow
+                   s
+                   lvl
+                   (GHC.Base.map
+                      @ (a, b)
+                      @ (b, b)
+                      (Control.Arrow.$cfirst @ a @ b @ b f1)
+                      l)) -}
+b2b0ea0ad08d63ae9719ae421c5bcdf5
+  $wtestF2 ::
+    (GHC.Show.Show c, GHC.Classes.Eq c) =>
+    GHC.Base.String -> (a -> b -> c) -> [(a, b, c)] -> Testing.Test
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A,A)><L,1*U(1*U,A)>, Inline: [0],
+     Unfolding: (\ @ a
+                   @ b
+                   @ c
+                   w :: GHC.Show.Show c
+                   w1 :: GHC.Classes.Eq c ->
+                 let {
+                   f :: c -> c -> GHC.Types.Bool = GHC.Classes.== @ c w1
+                 } in
+                 let {
+                   lvl :: (c, c) -> GHC.Types.Bool
+                     {- Arity: 1, Strictness: <L,U(1*U,1*U)>,
+                        Unfolding: InlineRule (1, True, False)
+                                   (\ p :: (c, c) ->
+                                    f (case p of wild { (,) x ds -> x })
+                                      (case p of wild { (,) ds y -> y })) -}
+                   = \ p :: (c, c) ->
+                     f (case p of wild { (,) x ds -> x })
+                       (case p of wild { (,) ds y -> y })
+                 } in
+                 let {
+                   $dShow :: GHC.Show.Show (c, c) = GHC.Show.$fShow(,) @ c @ c w w
+                 } in
+                 \ s :: GHC.Base.String f1 :: a -> b -> c l :: [(a, b, c)] ->
+                 Testing.Test
+                   @ (c, c)
+                   $dShow
+                   s
+                   lvl
+                   (GHC.Base.map
+                      @ (a, b, c)
+                      @ (c, c)
+                      (\ ds :: (a, b, c) ->
+                       case ds of wild { (,,) x y z -> (f1 x y, z) })
+                      l)) -}
+bb00b220d9a0dd4c8240b29d982da078
+  $wtestF3 ::
+    (GHC.Show.Show d, GHC.Classes.Eq d) =>
+    GHC.Base.String
+    -> (a -> b -> c -> d) -> [(a, b, c, d)] -> Testing.Test
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A,A)><L,1*U(1*U,A)>, Inline: [0],
+     Unfolding: (\ @ a
+                   @ b
+                   @ c
+                   @ d
+                   w :: GHC.Show.Show d
+                   w1 :: GHC.Classes.Eq d ->
+                 let {
+                   f :: d -> d -> GHC.Types.Bool = GHC.Classes.== @ d w1
+                 } in
+                 let {
+                   lvl :: (d, d) -> GHC.Types.Bool
+                     {- Arity: 1, Strictness: <L,U(1*U,1*U)>,
+                        Unfolding: InlineRule (1, True, False)
+                                   (\ p :: (d, d) ->
+                                    f (case p of wild { (,) x ds -> x })
+                                      (case p of wild { (,) ds y -> y })) -}
+                   = \ p :: (d, d) ->
+                     f (case p of wild { (,) x ds -> x })
+                       (case p of wild { (,) ds y -> y })
+                 } in
+                 let {
+                   $dShow :: GHC.Show.Show (d, d) = GHC.Show.$fShow(,) @ d @ d w w
+                 } in
+                 \ s :: GHC.Base.String
+                   f1 :: a -> b -> c -> d
+                   l :: [(a, b, c, d)] ->
+                 Testing.Test
+                   @ (d, d)
+                   $dShow
+                   s
+                   lvl
+                   (GHC.Base.map
+                      @ (a, b, c, d)
+                      @ (d, d)
+                      (\ ds :: (a, b, c, d) ->
+                       case ds of wild { (,,,) w2 x y z -> (f1 w2 x y, z) })
+                      l)) -}
+651ab0632532c2fd11980c819e2a4839
+  data Failure where
+    Fail :: GHC.Show.Show a => GHC.Base.String -> [a] -> Failure
+3c8d98846eeb86712b72f639cb44be71
+  data Test where
+    Test :: GHC.Show.Show a =>
+            GHC.Base.String -> (a -> GHC.Types.Bool) -> [a] -> Test
+63325dfbec7044fb87b2a96b19583933
+  runTest :: Testing.Test -> GHC.Base.Maybe Testing.Failure
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: (\ ds :: Testing.Test ->
+                 case ds of wild { Testing.Test a $dShow s f as ->
+                 case GHC.List.filter
+                        @ a
+                        (\ x :: a ->
+                         case f x of wild1 {
+                           GHC.Types.False -> GHC.Types.True
+                           GHC.Types.True -> GHC.Types.False })
+                        as of wild1 {
+                   [] -> GHC.Base.Nothing @ Testing.Failure
+                   : ipv ipv1
+                   -> GHC.Base.Just
+                        @ Testing.Failure
+                        (Testing.Fail @ a $dShow s wild1) } }) -}
+6abca917a6a4126eeea4d9664aca55e8
+  runTests :: [Testing.Test] -> [Testing.Failure]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: [Testing.Test] ->
+                 Data.Maybe.catMaybes1
+                   @ Testing.Failure
+                   (GHC.Base.build
+                      @ (GHC.Base.Maybe Testing.Failure)
+                      (\ @ b1
+                         c :: GHC.Base.Maybe Testing.Failure -> b1 -> b1[OneShot]
+                         n :: b1[OneShot] ->
+                       GHC.Base.foldr
+                         @ Testing.Test
+                         @ b1
+                         (GHC.Base.mapFB
+                            @ (GHC.Base.Maybe Testing.Failure)
+                            @ b1
+                            @ Testing.Test
+                            c
+                            Testing.runTest)
+                         n
+                         x))) -}
+ba1a55a419c3c348d19f029f87ab382d
+  testF1 ::
+    (GHC.Show.Show a, GHC.Show.Show b, GHC.Classes.Eq b) =>
+    GHC.Base.String -> (a -> b) -> [(a, b)] -> Testing.Test
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,A><L,U(C(C1(U)),A,A)><L,1*U(1*U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, True)
+                (\ @ a
+                   @ b
+                   w :: GHC.Show.Show a
+                   w1 :: GHC.Show.Show b
+                   w2 :: GHC.Classes.Eq b ->
+                 Testing.$wtestF1 @ a @ b w1 w2) -}
+736390d8097eba90fbd61917dc2e1781
+  testF2 ::
+    (GHC.Show.Show a, GHC.Show.Show b, GHC.Show.Show c,
+     GHC.Classes.Eq c) =>
+    GHC.Base.String -> (a -> b -> c) -> [(a, b, c)] -> Testing.Test
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,A><L,U(C(C1(U)),A,A)><L,1*U(1*U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, True)
+                (\ @ a
+                   @ b
+                   @ c
+                   w :: GHC.Show.Show a
+                   w1 :: GHC.Show.Show b
+                   w2 :: GHC.Show.Show c
+                   w3 :: GHC.Classes.Eq c ->
+                 Testing.$wtestF2 @ a @ b @ c w2 w3) -}
+ef2757b784bb03c0170e139439092d1b
+  testF3 ::
+    (GHC.Show.Show a, GHC.Show.Show b, GHC.Show.Show c,
+     GHC.Show.Show d, GHC.Classes.Eq d) =>
+    GHC.Base.String
+    -> (a -> b -> c -> d) -> [(a, b, c, d)] -> Testing.Test
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <L,A><L,A><L,A><L,U(C(C1(U)),A,A)><L,1*U(1*U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, True)
+                (\ @ a
+                   @ b
+                   @ c
+                   @ d
+                   w :: GHC.Show.Show a
+                   w1 :: GHC.Show.Show b
+                   w2 :: GHC.Show.Show c
+                   w3 :: GHC.Show.Show d
+                   w4 :: GHC.Classes.Eq d ->
+                 Testing.$wtestF3 @ a @ b @ c @ d w3 w4) -}
+instance GHC.Show.Show [Testing.Failure] = Testing.$fShowFailure
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

@@ -1,0 +1,670 @@
+
+==================== FINAL INTERFACE ====================
+2015-12-28 17:50:41.618009 UTC
+
+interface main@main:HW02Tests 7102
+  interface hash: e04bd23944d5e7d2c1beb57948eab037
+  ABI hash: 408567468dbbceba5b6b6c0d2be4536b
+  export-list hash: 9f62f9084fa357038ad0e2821fb70e18
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 7057ae4d781520a2891149424fb374a2
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  HW02Tests.allTests
+  HW02Tests.bonusTests
+  HW02Tests.ex1Tests
+  HW02Tests.ex2Tests
+  HW02Tests.ex3Tests
+  HW02Tests.ex4Tests
+  HW02Tests.ex5Tests
+  HW02Tests.ex6Tests
+  HW02Tests.ex7Tests
+module dependencies: Testing
+package dependencies: base-4.8.1.0* ghc-prim-0.4.0.0
+                      hw2-0.1.0.0@hw2_A5y52is64x8Angxr5cQPyn integer-gmp-1.0.0.0
+orphans: base-4.8.1.0:GHC.Base base-4.8.1.0:GHC.Float
+family instance modules: base-4.8.1.0:Control.Applicative
+                         base-4.8.1.0:Data.Either base-4.8.1.0:Data.Monoid
+                         base-4.8.1.0:Data.Type.Equality base-4.8.1.0:GHC.Generics
+import  -/  base-4.8.1.0:Data.Foldable 2e5acb797cfda6b3b7fabd7052abe290
+import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
+import  -/  hw2-0.1.0.0@hw2_A5y52is64x8Angxr5cQPyn:HW02 969cb8237e7865220b81a3a180d0eb50
+import  -/  Testing 89447255c6c1caa28833b6057ad44c56
+  exports: b5f078e34ce9ed2aa7d6a1581a0e72ac
+  Test 3c8d98846eeb86712b72f639cb44be71
+  testF1 ba1a55a419c3c348d19f029f87ab382d
+  testF2 736390d8097eba90fbd61917dc2e1781
+17f3fc1e99e01f9aa3f2fc7e504970a7
+  allTests :: [Testing.Test]
+  {- Unfolding: (HW02Tests.allTests_go HW02Tests.allTests1) -}
+f2fe198bc14ab7a2419ab3f9ce6df809
+  allTests1 :: [[Testing.Test]]
+  {- Unfolding: (GHC.Types.:
+                   @ [Testing.Test]
+                   HW02Tests.ex1Tests
+                   HW02Tests.allTests2) -}
+aa3526bbd2976d13109a8a7bf5dbe0e7
+  allTests2 :: [[Testing.Test]]
+  {- Unfolding: (GHC.Types.:
+                   @ [Testing.Test]
+                   HW02Tests.ex2Tests
+                   HW02Tests.allTests3) -}
+39b06faea513b75415638a99610c77ed
+  allTests3 :: [[Testing.Test]]
+  {- Unfolding: (GHC.Types.:
+                   @ [Testing.Test]
+                   HW02Tests.ex3Tests
+                   HW02Tests.allTests4) -}
+32536e9e8799729d07272b31adab5c8b
+  allTests4 :: [[Testing.Test]]
+  {- Unfolding: (GHC.Types.:
+                   @ [Testing.Test]
+                   HW02Tests.ex4Tests
+                   HW02Tests.allTests5) -}
+daa4400b7e16542c5e2e087fae978c26
+  allTests5 :: [[Testing.Test]]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ [Testing.Test]
+                   (GHC.Types.[] @ Testing.Test)
+                   HW02Tests.allTests6) -}
+67a3c0adc76c0220efab187dc1fb0c36
+  allTests6 :: [[Testing.Test]]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ [Testing.Test]
+                   (GHC.Types.[] @ Testing.Test)
+                   HW02Tests.allTests7) -}
+e605310944c4250708d6079b5507c061
+  allTests7 :: [[Testing.Test]]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ [Testing.Test]
+                   (GHC.Types.[] @ Testing.Test)
+                   HW02Tests.allTests8) -}
+2235e05e75f1669542c76ed8613c77af
+  allTests8 :: [[Testing.Test]]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ [Testing.Test]
+                   (GHC.Types.[] @ Testing.Test)
+                   (GHC.Types.[] @ [Testing.Test])) -}
+142a8360dcb254a94f4c08a8d77696c4
+  allTests_go :: [[Testing.Test]] -> [Testing.Test]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+f4eba8351a9eaca30c79c8bff6051c96
+  bonusTests :: [Testing.Test]
+  {- HasNoCafRefs,
+     Unfolding: InlineRule (0, True, True)
+                (GHC.Types.[] @ Testing.Test) -}
+3aae49b4e8b9378631585f0c53a519c6
+  ex1Tests :: [Testing.Test]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Testing.Test
+                   HW02Tests.ex1Tests1
+                   (GHC.Types.[] @ Testing.Test)) -}
+6bad07ec2467849485a04506911e2c3e
+  ex1Tests1 :: Testing.Test
+  {- Unfolding: (HW02Tests.ex2Tests7
+                   HW02Tests.ex1Tests16
+                   HW02.exactMatches
+                   HW02Tests.ex1Tests2) -}
+dcb646c63520efe8aa3e6a69c35afce5
+  ex1Tests10 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Yellow
+                   (GHC.Types.[] @ HW02.Peg)) -}
+17f97dcf3545f6a72ca2f7d7f6127cb9
+  ex1Tests11 :: ([HW02.Peg], [HW02.Peg], GHC.Types.Int)
+  {- HasNoCafRefs,
+     Unfolding: ((HW02Tests.ex1Tests7,
+                  HW02Tests.ex1Tests12,
+                  HW02Tests.ex2Tests18)) -}
+6abd405ef2d365848884f66bd783b75a
+  ex1Tests12 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Blue
+                   HW02Tests.ex1Tests13) -}
+2c88eae5bf1bb3e89cff23d88656059d
+  ex1Tests13 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Green
+                   HW02Tests.ex1Tests14) -}
+9d5db2d499a996c96eec0c7d8eaafaf4
+  ex1Tests14 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Yellow
+                   HW02Tests.ex1Tests15) -}
+be75b51e9ec57d88ff0a5b7a0b361c91
+  ex1Tests15 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Red
+                   (GHC.Types.[] @ HW02.Peg)) -}
+318156a4344f94eb4faaa72693510dd2
+  ex1Tests16 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "exactMatches test"#) -}
+e0ddcea29d2d2ffd434140682a663287
+  ex1Tests2 :: [(HW02.Code, HW02.Code, GHC.Types.Int)]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ (HW02.Code, HW02.Code, GHC.Types.Int)
+                   HW02Tests.ex1Tests11
+                   HW02Tests.ex1Tests3) -}
+63a0affda1737b1d5cb910767e1eea04
+  ex1Tests3 :: [(HW02.Code, HW02.Code, GHC.Types.Int)]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ (HW02.Code, HW02.Code, GHC.Types.Int)
+                   HW02Tests.ex1Tests4
+                   (GHC.Types.[] @ (HW02.Code, HW02.Code, GHC.Types.Int))) -}
+0fc6bdc307d244cf9b96ec850bff69bb
+  ex1Tests4 :: ([HW02.Peg], [HW02.Peg], GHC.Types.Int)
+  {- HasNoCafRefs,
+     Unfolding: ((HW02Tests.ex1Tests7,
+                  HW02Tests.ex1Tests5,
+                  HW02Tests.ex3Tests5)) -}
+ba0210eb3e8fa160ca970fc8eac033bb
+  ex1Tests5 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.: @ HW02.Peg HW02.Red HW02Tests.ex1Tests6) -}
+b19a6e79d45f8a6e80cfc2db33b596ba
+  ex1Tests6 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Purple
+                   HW02Tests.ex2Tests21) -}
+9aee05e843b7256b92b4992fdcc9fc87
+  ex1Tests7 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.: @ HW02.Peg HW02.Red HW02Tests.ex1Tests8) -}
+d96a167d0b4deb2baaf58ccf2d3395f7
+  ex1Tests8 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Blue
+                   HW02Tests.ex1Tests9) -}
+e0b35cfe3b473d1a1832ecf529d76d73
+  ex1Tests9 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Green
+                   HW02Tests.ex1Tests10) -}
+0eca8e6834dbc3c7c84bc0b6da1c73e8
+  ex2Tests :: [Testing.Test]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Testing.Test
+                   HW02Tests.ex2Tests8
+                   HW02Tests.ex2Tests1) -}
+c6ee6a2ad8f063bf857770e0fc9035c3
+  ex2Tests1 :: [Testing.Test]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Testing.Test
+                   HW02Tests.ex2Tests2
+                   (GHC.Types.[] @ Testing.Test)) -}
+6d31f478e4abdde1f2be4a9eb3069ecb
+  ex2Tests10 :: [(HW02.Code, [GHC.Types.Int])]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ (HW02.Code, [GHC.Types.Int])
+                   HW02Tests.ex2Tests11
+                   (GHC.Types.[] @ (HW02.Code, [GHC.Types.Int]))) -}
+a96834aff95eec83bb9fb1653a582dc9
+  ex2Tests11 :: ([HW02.Peg], [GHC.Types.Int])
+  {- HasNoCafRefs,
+     Unfolding: ((HW02Tests.ex2Tests19, HW02Tests.ex2Tests12)) -}
+a9344aa3f2ec52bcc169ee5935b09969
+  ex2Tests12 :: [GHC.Types.Int]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   HW02Tests.ex2Tests18
+                   HW02Tests.ex2Tests13) -}
+c55dcb83621b7e273a3cd1abf2f36def
+  ex2Tests13 :: [GHC.Types.Int]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   HW02Tests.ex3Tests5
+                   HW02Tests.ex2Tests14) -}
+b24f3b9509bc063b66df56aada20a7d0
+  ex2Tests14 :: [GHC.Types.Int]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   HW02Tests.ex4Tests10
+                   HW02Tests.ex2Tests15) -}
+75f3bf913c4cd557e1bee26adf5952e2
+  ex2Tests15 :: [GHC.Types.Int]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   HW02Tests.ex2Tests18
+                   HW02Tests.ex2Tests16) -}
+1093bfa7c1e52aec3ef7c595896b6f58
+  ex2Tests16 :: [GHC.Types.Int]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   HW02Tests.ex4Tests10
+                   HW02Tests.ex2Tests17) -}
+4540f980b2ed2a5ccd93000eb8d30a2f
+  ex2Tests17 :: [GHC.Types.Int]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   HW02Tests.ex2Tests18
+                   (GHC.Types.[] @ GHC.Types.Int)) -}
+4d0d4adde8faa4411f33932cc10418be
+  ex2Tests18 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 0) -}
+4a53b5e648e39f86b1af0bcf3c1063d5
+  ex2Tests19 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Green
+                   HW02Tests.ex2Tests20) -}
+d01f22bf3160bee328fd423078235f26
+  ex2Tests2 :: Testing.Test
+  {- Unfolding: (HW02Tests.ex2Tests7
+                   HW02Tests.ex2Tests6
+                   HW02.matches
+                   HW02Tests.ex2Tests3) -}
+9b3a5b8afd94b1bbf1635fe7a26e7ebd
+  ex2Tests20 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Blue
+                   HW02Tests.ex2Tests21) -}
+e1520bc61e81532a8d8583e2f7292f32
+  ex2Tests21 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Green
+                   HW02Tests.ex3Tests13) -}
+40b172616a39619080c70940fc193ee7
+  ex2Tests22 :: ([HW02.Peg], [GHC.Types.Int])
+  {- HasNoCafRefs,
+     Unfolding: ((HW02Tests.ex4Tests16, HW02Tests.ex2Tests23)) -}
+3a0c0a2e3b33de35d6360a619ff25e5e
+  ex2Tests23 :: [GHC.Types.Int]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   HW02Tests.ex4Tests10
+                   HW02Tests.ex2Tests24) -}
+fc9938a0740aeca5bd3b9c9bf8f86ec5
+  ex2Tests24 :: [GHC.Types.Int]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   HW02Tests.ex2Tests18
+                   HW02Tests.ex2Tests25) -}
+c50763c6ee640e97cee5ef6833d90fc7
+  ex2Tests25 :: [GHC.Types.Int]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   HW02Tests.ex4Tests10
+                   HW02Tests.ex2Tests26) -}
+3dad948faffcb3fc2ad600e79950ec3b
+  ex2Tests26 :: [GHC.Types.Int]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   HW02Tests.ex4Tests10
+                   HW02Tests.ex2Tests27) -}
+ad97a91f397d89f342e8193f845fa88a
+  ex2Tests27 :: [GHC.Types.Int]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   HW02Tests.ex2Tests18
+                   HW02Tests.ex2Tests28) -}
+4b20f43c69287d409f7fdfce75d3a628
+  ex2Tests28 :: [GHC.Types.Int]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   HW02Tests.ex4Tests10
+                   (GHC.Types.[] @ GHC.Types.Int)) -}
+bd9834cca74ca6d35867b9821267c0b2
+  ex2Tests29 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "countColors test"#) -}
+2297fa1d070a010697a21c04f07dca01
+  ex2Tests3 :: [(HW02.Code, HW02.Code, GHC.Types.Int)]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ (HW02.Code, HW02.Code, GHC.Types.Int)
+                   HW02Tests.ex2Tests4
+                   (GHC.Types.[] @ (HW02.Code, HW02.Code, GHC.Types.Int))) -}
+ae9374b3872a9d03e3002bd120077417
+  ex2Tests30 ::
+    GHC.Base.String
+    -> (HW02.Code -> [GHC.Types.Int])
+    -> [(HW02.Code, [GHC.Types.Int])]
+    -> Testing.Test
+  {- Unfolding: (Testing.$wtestF1
+                   @ HW02.Code
+                   @ [GHC.Types.Int]
+                   GHC.Show.$fShow[]_$s$fShow[]
+                   GHC.Classes.$fEq[]_$s$fEq[]) -}
+18a31d032fe7342a514f84607da6c23b
+  ex2Tests4 :: ([HW02.Peg], [HW02.Peg], GHC.Types.Int)
+  {- HasNoCafRefs,
+     Unfolding: ((HW02Tests.ex3Tests10,
+                  HW02Tests.ex3Tests6,
+                  HW02Tests.ex2Tests5)) -}
+8b9122dbdbe6751fb27f2487f79df23e
+  ex2Tests5 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 3) -}
+4cb123df8de1b731b7d0524744953d05
+  ex2Tests6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "matches test"#) -}
+db3e90271d15494a72450f30077085bd
+  ex2Tests7 ::
+    GHC.Base.String
+    -> (HW02.Code -> HW02.Code -> GHC.Types.Int)
+    -> [(HW02.Code, HW02.Code, GHC.Types.Int)]
+    -> Testing.Test
+  {- Unfolding: (Testing.$wtestF2
+                   @ HW02.Code
+                   @ HW02.Code
+                   @ GHC.Types.Int
+                   GHC.Show.$fShowInt
+                   GHC.Classes.$fEqInt) -}
+0bae467a284f2234dfeba20fd5d42df0
+  ex2Tests8 :: Testing.Test
+  {- Unfolding: (HW02Tests.ex2Tests30
+                   HW02Tests.ex2Tests29
+                   HW02.countColors
+                   HW02Tests.ex2Tests9) -}
+a896de9179b795bfc4e577802a5c4038
+  ex2Tests9 :: [(HW02.Code, [GHC.Types.Int])]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ (HW02.Code, [GHC.Types.Int])
+                   HW02Tests.ex2Tests22
+                   HW02Tests.ex2Tests10) -}
+fb66eed6a8108f71275e171a1f569fea
+  ex3Tests :: [Testing.Test]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Testing.Test
+                   HW02Tests.ex3Tests1
+                   (GHC.Types.[] @ Testing.Test)) -}
+e809994250f1186a32dd0715995f624d
+  ex3Tests1 :: Testing.Test
+  {- Unfolding: (HW02Tests.ex3Tests15
+                   HW02Tests.ex3Tests14
+                   HW02.getMove
+                   HW02Tests.ex3Tests2) -}
+39872433cb7abf5ddbf74b24d63b4b84
+  ex3Tests10 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Red
+                   HW02Tests.ex3Tests11) -}
+72aeb44dd4b4e96a2582701e82895894
+  ex3Tests11 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Blue
+                   HW02Tests.ex3Tests12) -}
+6c2fe3afbc0380f87bc4a3eda2cfcd0d
+  ex3Tests12 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Yellow
+                   HW02Tests.ex3Tests13) -}
+0450f10da58c72172aaa6139bc3f0a3c
+  ex3Tests13 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Orange
+                   (GHC.Types.[] @ HW02.Peg)) -}
+9019e23348f87812a4e61b28978e96d4
+  ex3Tests14 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "getMove test"#) -}
+412f4bcee632343d8ba4560dd2f1d95d
+  ex3Tests15 ::
+    GHC.Base.String
+    -> (HW02.Code -> HW02.Code -> HW02.Move)
+    -> [(HW02.Code, HW02.Code, HW02.Move)]
+    -> Testing.Test
+  {- Unfolding: (Testing.$wtestF2
+                   @ HW02.Code
+                   @ HW02.Code
+                   @ HW02.Move
+                   HW02.$fShowMove
+                   HW02.$fEqMove) -}
+45f06d1dda1a07d92deab1564ffb9ddb
+  ex3Tests2 :: [(HW02.Code, HW02.Code, HW02.Move)]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ (HW02.Code, HW02.Code, HW02.Move)
+                   HW02Tests.ex3Tests3
+                   (GHC.Types.[] @ (HW02.Code, HW02.Code, HW02.Move))) -}
+171b93b2d7570031e9bbecf00800bc8e
+  ex3Tests3 :: ([HW02.Peg], [HW02.Peg], HW02.Move)
+  {- HasNoCafRefs,
+     Unfolding: ((HW02Tests.ex3Tests10,
+                  HW02Tests.ex3Tests6,
+                  HW02Tests.ex3Tests4)) -}
+c673085e41df26bedba9c78177b61bf8
+  ex3Tests4 :: HW02.Move
+  {- HasNoCafRefs,
+     Unfolding: (HW02.Move
+                   HW02Tests.ex3Tests6
+                   HW02Tests.ex4Tests10
+                   HW02Tests.ex3Tests5) -}
+9522844a68c86a336ad1730bd73c8c64
+  ex3Tests5 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 2) -}
+d82e32fb968e405e9eef7dbbb90e2cc9
+  ex3Tests6 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.: @ HW02.Peg HW02.Red HW02Tests.ex3Tests7) -}
+574912d3c0ab42dc49f031060063735f
+  ex3Tests7 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Orange
+                   HW02Tests.ex3Tests8) -}
+894e3208265cd07af3a884bb5489520f
+  ex3Tests8 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Orange
+                   HW02Tests.ex3Tests9) -}
+f48331978ac444f699742851b8b89589
+  ex3Tests9 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Blue
+                   (GHC.Types.[] @ HW02.Peg)) -}
+2f968ffc5398fe80fd2b44ebd8b5fe14
+  ex4Tests :: [Testing.Test]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Testing.Test
+                   HW02Tests.ex4Tests1
+                   (GHC.Types.[] @ Testing.Test)) -}
+8da4326335bc99d3c24508ea517dadd8
+  ex4Tests1 :: Testing.Test
+  {- Unfolding: (HW02Tests.ex4Tests20
+                   HW02Tests.ex4Tests19
+                   HW02.isConsistent
+                   HW02Tests.ex4Tests2) -}
+20f6f907532a4760c0ddf1d2652ea2e7
+  ex4Tests10 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 1) -}
+54aaa96426c529163acc09014ff6261e
+  ex4Tests11 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Red
+                   HW02Tests.ex4Tests12) -}
+07dd5dd272db3bdc89b4c59edcffb721
+  ex4Tests12 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Red
+                   HW02Tests.ex4Tests13) -}
+5a74f594c98445ab674ee7632b59abda
+  ex4Tests13 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Blue
+                   HW02Tests.ex4Tests14) -}
+fcaa5567a31ff740bc0e4fbc5ef1ca11
+  ex4Tests14 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Green
+                   (GHC.Types.[] @ HW02.Peg)) -}
+f10eb37c287133be7e5b7429a821e624
+  ex4Tests15 :: (HW02.Move, [HW02.Peg], GHC.Types.Bool)
+  {- HasNoCafRefs,
+     Unfolding: ((HW02Tests.ex4Tests9,
+                  HW02Tests.ex4Tests16,
+                  GHC.Types.True)) -}
+72b99fd3d9eec3a0b2ed91b3182a1562
+  ex4Tests16 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Red
+                   HW02Tests.ex4Tests17) -}
+c5296e1c5b8c6af52be989d585d50e35
+  ex4Tests17 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Blue
+                   HW02Tests.ex4Tests18) -}
+e35fd35de1fe212fdc7195752eb0e939
+  ex4Tests18 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Yellow
+                   HW02Tests.ex4Tests8) -}
+6d169e47c5cd2d650ce4cacdc990054a
+  ex4Tests19 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "isConsistent test"#) -}
+945a09c429dbae3f793df576e5f98399
+  ex4Tests2 :: [(HW02.Move, HW02.Code, GHC.Types.Bool)]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ (HW02.Move, HW02.Code, GHC.Types.Bool)
+                   HW02Tests.ex4Tests15
+                   HW02Tests.ex4Tests3) -}
+f328621fb4fb087b17c590be2b163db8
+  ex4Tests20 ::
+    GHC.Base.String
+    -> (HW02.Move -> HW02.Code -> GHC.Types.Bool)
+    -> [(HW02.Move, HW02.Code, GHC.Types.Bool)]
+    -> Testing.Test
+  {- Unfolding: (Testing.$wtestF2
+                   @ HW02.Move
+                   @ HW02.Code
+                   @ GHC.Types.Bool
+                   GHC.Show.$fShowBool
+                   GHC.Classes.$fEqBool) -}
+8ca4cedac283212e32d5e3430049575e
+  ex4Tests3 :: [(HW02.Move, HW02.Code, GHC.Types.Bool)]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ (HW02.Move, HW02.Code, GHC.Types.Bool)
+                   HW02Tests.ex4Tests4
+                   (GHC.Types.[] @ (HW02.Move, HW02.Code, GHC.Types.Bool))) -}
+97c5b278c7aa1ae6e57952fb9b16ad03
+  ex4Tests4 :: (HW02.Move, [HW02.Peg], GHC.Types.Bool)
+  {- HasNoCafRefs,
+     Unfolding: ((HW02Tests.ex4Tests9,
+                  HW02Tests.ex4Tests5,
+                  GHC.Types.False)) -}
+a4ad515be77319f0d031eb97ad762593
+  ex4Tests5 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.: @ HW02.Peg HW02.Red HW02Tests.ex4Tests6) -}
+3e266beae584e1c7f07d6c6ca28d5440
+  ex4Tests6 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Blue
+                   HW02Tests.ex4Tests7) -}
+62d41f52334ce7103874e2e062c822a3
+  ex4Tests7 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.: @ HW02.Peg HW02.Red HW02Tests.ex4Tests8) -}
+3a67ec7e5eb12e36118774be1782ea3b
+  ex4Tests8 :: [HW02.Peg]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ HW02.Peg
+                   HW02.Purple
+                   (GHC.Types.[] @ HW02.Peg)) -}
+995e99970b9c7180129b567c3b4401c6
+  ex4Tests9 :: HW02.Move
+  {- HasNoCafRefs,
+     Unfolding: (HW02.Move
+                   HW02Tests.ex4Tests11
+                   HW02Tests.ex4Tests10
+                   HW02Tests.ex4Tests10) -}
+3f51f998628605817aed113c0ae87686
+  ex5Tests :: [Testing.Test]
+  {- HasNoCafRefs,
+     Unfolding: InlineRule (0, True, True)
+                (GHC.Types.[] @ Testing.Test) -}
+15b0b49439bdc63e862e8aa599855a86
+  ex6Tests :: [Testing.Test]
+  {- HasNoCafRefs,
+     Unfolding: InlineRule (0, True, True)
+                (GHC.Types.[] @ Testing.Test) -}
+4bf7e501f2527c8db67e1145a0a0bea2
+  ex7Tests :: [Testing.Test]
+  {- HasNoCafRefs,
+     Unfolding: InlineRule (0, True, True)
+                (GHC.Types.[] @ Testing.Test) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

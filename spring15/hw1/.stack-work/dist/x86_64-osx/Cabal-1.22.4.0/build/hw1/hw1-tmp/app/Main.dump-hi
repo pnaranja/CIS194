@@ -1,0 +1,123 @@
+
+==================== FINAL INTERFACE ====================
+2015-12-10 09:06:16.932607 UTC
+
+interface main@main:Main 7102
+  interface hash: eaffe67ca28172cbb9f40f8e0810b698
+  ABI hash: ca951865fed9c77568df75eeb7536c45
+  export-list hash: 8c1a10e76ec12b0f73fc04d770dbb03f
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 2b5a8508d1b107b108c82d9180ab8831
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.main
+  Main.verify
+module dependencies:
+package dependencies: base-4.8.1.0* ghc-prim-0.4.0.0
+                      hw1-0.1.0.0@hw1_JVMlZnu4bb89gOdH7qD1F5 integer-gmp-1.0.0.0
+orphans: base-4.8.1.0:GHC.Base base-4.8.1.0:GHC.Float
+family instance modules: base-4.8.1.0:Control.Applicative
+                         base-4.8.1.0:Data.Either base-4.8.1.0:Data.Monoid
+                         base-4.8.1.0:Data.Type.Equality base-4.8.1.0:GHC.Generics
+import  -/  base-4.8.1.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
+import  -/  base-4.8.1.0:System.IO 29a6f3d7c8ad8a4e6200d8bbb6e70aae
+import  -/  base-4.8.1.0:Text.Read 30509137a501bd56d136aca29a7a35a6
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  hw1-0.1.0.0@hw1_JVMlZnu4bb89gOdH7qD1F5:HW01 866ef15b61840dd668df8c14c522edfd
+import  -/  integer-gmp-1.0.0.0:GHC.Integer.Type bf9b4d13b1dbe96a83786d2e47d2e8ca
+ba7e465dc578e5546df8fae132e593c8
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+11352f2a7f40c4a95325d516feda28b1
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        Main.main7
+                        GHC.Types.True
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 case GHC.IO.Handle.Internals.wantReadableHandle_1
+                        @ GHC.Base.String
+                        GHC.IO.Handle.Text.hGetLine4
+                        GHC.IO.Handle.FD.stdin
+                        GHC.IO.Handle.Text.hGetLine2
+                          `cast`
+                        (<GHC.IO.Handle.Types.Handle__>_R
+                         ->_R Sym (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R))
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   (case Text.Read.readEither6
+                           @ GHC.Integer.Type.Integer
+                           (Text.ParserCombinators.ReadP.run
+                              @ GHC.Integer.Type.Integer
+                              Main.main6
+                              ipv3) of wild {
+                      [] -> case Main.main5 ret_ty GHC.Base.String of {}
+                      : x ds
+                      -> case ds of wild1 {
+                           []
+                           -> case HW01.luhn x of wild2 {
+                                GHC.Types.False -> Main.main4 GHC.Types.True -> Main.main3 }
+                           : ipv4 ipv5 -> case Main.main2 ret_ty GHC.Base.String of {} } })
+                   GHC.Types.True
+                   ipv2 } }) -}
+303fbc6ff15d8de20aa2fd92daa34dc9
+  main2 :: GHC.Integer.Type.Integer
+  {- Strictness: b -}
+9504f6791e682a78083bee8239f6e54d
+  main3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Valid Credit Card"#) -}
+87eddb223401648118fc924027c2a15c
+  main4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "Invalid Credit Card"#) -}
+f7ee7abe40b9a9865c5757886fbeed46
+  main5 :: GHC.Integer.Type.Integer
+  {- Strictness: b -}
+782faeac1099101db2111919901c265d
+  main6 :: Text.ParserCombinators.ReadP.P GHC.Integer.Type.Integer
+  {- Unfolding: ((GHC.Read.$fReadInteger3
+                    GHC.Read.$fReadInteger_$sconvertInt
+                    Text.ParserCombinators.ReadPrec.minPrec)
+                   `cast`
+                 (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                      <GHC.Integer.Type.Integer>_R)
+                   @ GHC.Integer.Type.Integer
+                   (Text.Read.readEither5 @ GHC.Integer.Type.Integer)) -}
+2d26b09484a3baae46925b8929582df9
+  main7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "Enter a credit card number: "#) -}
+743623a6881a7dcb4e0117895abbfa1e
+  main8 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R))) -}
+cc0cc3e7a47c02c37cd52e0a5baea309
+  verify :: GHC.Types.Bool -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: GHC.Types.Bool ->
+                 case x of wild {
+                   GHC.Types.False -> Main.main4 GHC.Types.True -> Main.main3 }) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
