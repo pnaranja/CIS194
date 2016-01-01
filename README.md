@@ -1,4 +1,5 @@
-Set of haskell exercises to go through the online class:
+Set of haskell exercises to go through the online class
+
 Spring 2013:
 http://www.seas.upenn.edu/~cis194/spring13/lectures.html
 
