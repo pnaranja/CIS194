@@ -8,24 +8,10 @@ import Log
 -- parseMessage "I 29 la la la" == LogMessage Info 29 "la la la"
 -- parseMessage "This is not in the right format" == Unknown "This is not in the right format"
 parseMessage :: String -> LogMessage
-parseMessage [] = LogMessage Unknown unknownMessage
-parseMessage message
-    | ["E"] <- take 1 $ words message                 = LogMessage errorMessageType timeStamp (unwords xs)
-    | (type:thetime:xs) <- words message            = LogMessage messageType thetime (unwords xs)
-    | otherwise                                     = LogMessage Unknown unknownMessage
-        where messageType = getMessageType type
-              errorMessageType = getErrorMessageType (take 2 $ words message)
+parseMessage message = parseMessage' $ words message
 
-unknownMessage :: String
-unknownMessage = "This is not in the right format"
-
-getErrorMessageType:: [String] -> MessageType
-getErrorMessageType s = case s of
-                ("E":num) -> Error num 
-                _         -> Error -1
-
-getMessageType :: String -> MessageType
-getMessageType m = case m of
-                     "I" -> Info
-                     "W" -> Warning
-                     _   -> Error -1
+parseMessage' :: [String] -> LogMessage
+parseMessage' ("E":errornum:timestamp:xs) = LogMessage (Error (read errornum :: Int)) (read timestamp :: Int) (unwords xs)
+parseMessage' ("I":timestamp:xs) = LogMessage Info (read timestamp :: Int) (unwords xs)
+parseMessage' ("W":timestamp:xs) = LogMessage Warning (read timestamp :: Int) (unwords xs)
+parseMessage' _ = Unknown "This is not in the right format"
