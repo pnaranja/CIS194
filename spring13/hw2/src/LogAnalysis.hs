@@ -2,9 +2,6 @@
 module LogAnalysis where
 import Log
 
---Need to run "stack install split"
-import Data.List.Split
-
 -- Exercise 1
 -- Parses an individual line from the log file. For example,
 -- parseMessage "E 2 562 help help" == LogMessage (Error 2) 562 "help help"
@@ -19,8 +16,6 @@ parseMessage' ("I":timestamp:xs) = LogMessage Info (read timestamp :: Int) (unwo
 parseMessage' ("W":timestamp:xs) = LogMessage Warning (read timestamp :: Int) (unwords xs)
 parseMessage' _ = Unknown "This is not in the right format"
 
+-- Assume testParse function opens the file to read - Don't have to deal with IO Monad
 parse :: String -> [LogMessage]
-parse filename =  do
-                    contents <- readFile filename
-                    ret <- map parseMessage  (Data.List.Split.splitOn "\n" contents)
-                    return ret
+parse s =  map parseMessage (lines s)
