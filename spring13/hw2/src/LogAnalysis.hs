@@ -19,3 +19,6 @@ parseMessage' _ = Unknown "This is not in the right format"
 -- Assume testParse function opens the file to read - Don't have to deal with IO Monad
 parse :: String -> [LogMessage]
 parse s =  map parseMessage (lines s)
+
+-- Exercise 2
+insert :: LogMessage -> MessageTree -> MessageTree
