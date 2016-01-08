@@ -17,8 +17,17 @@ parseMessage' ("W":timestamp:xs) = LogMessage Warning (read timestamp :: Int) (u
 parseMessage' _ = Unknown "This is not in the right format"
 
 -- Assume testParse function opens the file to read - Don't have to deal with IO Monad
+-- The function "lines" splits the string from endline characters
 parse :: String -> [LogMessage]
 parse s =  map parseMessage (lines s)
 
 -- Exercise 2
+-- Insert LogMessage into (an assumed sorted) MessageTree
+-- Don't insert Unknown LogMessages
 insert :: LogMessage -> MessageTree -> MessageTree
+insert (Unknown _) tree = tree
+insert message Leaf = Node Leaf message Leaf
+insert message@(LogMessage _ timestamp1 _) tree@(Node mtree1 tmessage@(LogMessage _ timestamp2 _) mtree2)
+    |  timestamp1>timestamp2     =   Node mtree1 tmessage (insert message mtree2) 
+    |  timestamp1<timestamp2     =   Node (insert message mtree1) tmessage mtree2 
+    |  otherwise                 =   tree
