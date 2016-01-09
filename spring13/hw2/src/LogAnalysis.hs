@@ -34,5 +34,13 @@ insert message@(LogMessage _ timestamp1 _) tree@(Node mtree1 tmessage@(LogMessag
 
 -- Exercise 3
 -- Build a Message Tree from a list of LogMessages
+-- Using foldr since we're applying the first argument of insert from the mlist
 build :: [LogMessage] -> MessageTree
 build mlist = foldr insert Leaf mlist
+
+-- Exercise 4
+-- Produce a sorted list of LogMessages from a SORTED MessageTree
+inOrder :: MessageTree -> [LogMessage]
+inOrder Leaf = []
+inOrder (Node mtree1 message mtree2) = inOrder mtree1 ++ message : inOrder mtree2
+
