@@ -31,3 +31,8 @@ insert message@(LogMessage _ timestamp1 _) tree@(Node mtree1 tmessage@(LogMessag
     |  timestamp1>timestamp2     =   Node mtree1 tmessage (insert message mtree2) 
     |  timestamp1<timestamp2     =   Node (insert message mtree1) tmessage mtree2 
     |  otherwise                 =   tree
+
+-- Exercise 3
+-- Build a Message Tree from a list of LogMessages
+build :: [LogMessage] -> MessageTree
+build mlist = foldr insert Leaf mlist
