@@ -30,13 +30,16 @@ data Statement =
   | Skip
   deriving (Show, Eq)
 
+--Function of (String->Int) return type State
 type State = String -> Int
 
 -- Exercise 1 -----------------------------------------
 -- Store and look up state of a variable
 -- Whenever we assign a variable, we want to update the program State
 extend :: State -> String -> Int -> State
-extend = undefined
+extend state1 str i = state2
+    where state2 str = i
+          state2 _ = -1
 
 empty :: State
 empty = undefined
