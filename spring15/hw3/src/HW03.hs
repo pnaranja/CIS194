@@ -36,13 +36,16 @@ type State = String -> Int
 -- Exercise 1 -----------------------------------------
 -- Store and look up state of a variable
 -- Whenever we assign a variable, we want to update the program State
+-- Create a new state which maps str with i, otherwise use the old state
 extend :: State -> String -> Int -> State
 extend state1 str i = state2
-    where state2 str = i
-          state2 _ = -1
+    where state2 :: State
+          state2 s
+            | s==str        = i
+            | otherwise     = state1 s 
 
 empty :: State
-empty = undefined
+empty str = 0
 
 -- Exercise 2 -----------------------------------------
 
