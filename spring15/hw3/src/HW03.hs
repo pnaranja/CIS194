@@ -48,9 +48,12 @@ empty :: State
 empty str = 0
 
 -- Exercise 2 -----------------------------------------
+-- Results of "True" or "False" will be 1 or 0 respectively
 
 evalE :: State -> Expression -> Int
-evalE = undefined
+evalE state var str = undefined
+evalE state val i = undefined
+evalE state Op exp Bop exp2 = undefined
 
 -- Exercise 3 -----------------------------------------
 
