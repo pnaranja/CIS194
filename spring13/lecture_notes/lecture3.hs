@@ -24,3 +24,14 @@ squareIt x = x*x
 
 mapAddOneList = mapIntList addOne exampleList
 mapSquareItList = mapIntList squareIt exampleList
+
+keepOnlyEven :: IntList -> IntList
+keepOnlyEven Empty = Empty
+keepOnlyEven (Cons x xs)
+    | even x            = Cons x (keepOnlyEven xs)
+    | otherwise         = keepOnlyEven xs
+
+even :: Int -> Bool
+even x
+    | x%2 == 0          = True
+    | otherwise         = False
