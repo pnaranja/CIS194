@@ -55,6 +55,7 @@ evalE state var str = undefined
 evalE state val i = undefined
 evalE state Op exp Bop exp2 = undefined
 
+
 -- Exercise 3 -----------------------------------------
 
 data DietStatement = DAssign String Expression
