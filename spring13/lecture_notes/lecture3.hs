@@ -35,3 +35,8 @@ even :: Int -> Bool
 even x
     | x%2 == 0          = True
     | otherwise         = False
+
+data List t = E | C t (List t)
+
+lst1 :: List Int
+lst1 = C 3 (C 5 (C 2 E))
