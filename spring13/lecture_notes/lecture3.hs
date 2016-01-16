@@ -36,7 +36,24 @@ even x
     | x%2 == 0          = True
     | otherwise         = False
 
+-- Polymorphic Data Types
+-- Empty -> E and Cons -> C
+-- Given a type t, a (List t) is either constructor E or constructor C of type t and another List t
 data List t = E | C t (List t)
 
 lst1 :: List Int
 lst1 = C 3 (C 5 (C 2 E))
+
+lst2 :: List Char
+lst2 = C 'x' (C 'y' (C 'z' E))
+
+lst3 :: List Bool
+lst3 = C True (C False E)
+
+-- Make filterIntList
+-- Use p instead of f, since f is already used
+filterList _ E = E
+filterList p (C x xs)
+    | p x           = C (p x) (filterList xs)   
+    | otherwise     = filterList p xs
+
