@@ -56,4 +56,3 @@ filterList _ E = E
 filterList p (C x xs)
     | p x           = C (p x) (filterList xs)   
     | otherwise     = filterList p xs
-
