@@ -37,7 +37,7 @@ insert _ (Node mtree1 (Unknown s) mtree2) =  Node mtree1 (Unknown s) mtree2 -- T
 -- Build a Message Tree from a list of LogMessages
 -- Using foldr since we're applying the first argument of insert from the mlist
 build :: [LogMessage] -> MessageTree
-build mlist = foldr insert Leaf mlist
+build = foldr insert Leaf
 
 -- Exercise 4
 -- Produce a sorted list of LogMessages from a SORTED MessageTree
