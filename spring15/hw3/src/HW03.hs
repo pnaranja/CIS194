@@ -51,9 +51,27 @@ empty str = 0
 -- Results of "True" or "False" will be 1 or 0 respectively
 
 evalE :: State -> Expression -> Int
-evalE state var str = undefined
-evalE state val i = undefined
-evalE state Op exp Bop exp2 = undefined
+evalE state (Var str) = 0
+evalE state (Val i) = i
+evalE state (Op exp1 Plus exp2)       = (evalE state exp1) + (evalE state exp2)
+evalE state (Op exp1 Minus exp2)      = (evalE state exp1) - (evalE state exp2)
+evalE state (Op exp1 Times exp2)      = (evalE state exp1) * (evalE state exp2)
+evalE state (Op exp1 Divide exp2)     = div (evalE state exp1) (evalE state exp2)
+evalE state (Op exp1 Gt exp2)         
+    | (evalE state exp1) > (evalE state exp2)                   = 1
+    | otherwise                                                 = 0
+evalE state (Op exp1 Ge exp2)         
+    | (evalE state exp1) >= (evalE state exp2)                  = 1
+    | otherwise                                                 = 0
+evalE state (Op exp1 Lt exp2)         
+    | (evalE state exp1) < (evalE state exp2)                   = 1
+    | otherwise                                                 = 0
+evalE state (Op exp1 Le exp2)         
+    | (evalE state exp1) <= (evalE state exp2)                  = 1
+    | otherwise                                                 = 0
+evalE state (Op exp1 Eql exp2)        
+    | (evalE state exp1) == (evalE state exp2)                  = 1
+    | otherwise                                                 = 0
 
 
 -- Exercise 3 -----------------------------------------

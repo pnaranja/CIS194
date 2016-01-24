@@ -1,6 +1,6 @@
 module Main where
 
-import Lib
+import HW03
 
 main :: IO ()
-main = someFunc
+main = undefined
