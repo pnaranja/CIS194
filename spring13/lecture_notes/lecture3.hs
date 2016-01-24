@@ -31,15 +31,16 @@ keepOnlyEven (Cons x xs)
     | even x            = Cons x (keepOnlyEven xs)
     | otherwise         = keepOnlyEven xs
 
-even :: Int -> Bool
-even x
-    | x%2 == 0          = True
+even1 :: Int -> Bool
+even1 x
+    | mod x 2 == 0          = True
     | otherwise         = False
 
 -- Polymorphic Data Types
 -- Empty -> E and Cons -> C
 -- Given a type t, a (List t) is either constructor E or constructor C of type t and another List t
 data List t = E | C t (List t)
+    deriving Show
 
 lst1 :: List Int
 lst1 = C 3 (C 5 (C 2 E))
@@ -56,3 +57,43 @@ filterList _ E = E
 filterList p (C x xs)
     | p x           = C (p x) (filterList xs)   
     | otherwise     = filterList p xs
+
+-- General mapList
+-- function q changes type a -> type b
+mapList :: (a -> b) -> List a -> List b
+mapList _ E = E
+mapList q (C x xs) = C (q x) (mapList xs)
+
+-- Partial functions
+-- Recommend not to create partial functions because certain inputs can make it crash or recurse infinitely
+-- Use pattern matching
+myHeadInt :: [Int] -> Int
+myHeadInt [] = 0
+myHeadInt (x:_) = x
+
+
+-- What if you find yourself writing a partial function?
+-- 1. Change the output type to indicate the possible failure
+-- Given: data Maybe a = Nothing | Just a
+
+
+safeHead :: [a] -> Maybe a
+safeHead []         = Nothing
+safeHead (x:_)      = Just x
+
+-- 2. Create a type that has the guarantee that the list is non-empty
+data NonEmptyList a = NEL a [a]
+
+nelToList :: NonEmptyList a -> [a]
+nelToList (NEL x xs) = x:xs
+
+listToNel :: [a] -> Maybe (NonEmptyList a)
+listToNel []            = Empty
+listToNel (x:xs)        = Just $ NEL x xs
+
+headNel :: NonEmptyList a -> a
+headNel (NEL a _)     = a
+
+tailNel :: NonEmptyList a -> [a]
+tailNel (NEL _ xs)      = xs
+
