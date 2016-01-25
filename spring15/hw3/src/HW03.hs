@@ -76,6 +76,8 @@ evalE state (Op exp1 Eql exp2)
 
 -- Exercise 3 -----------------------------------------
 
+-- DietStatement like Statement w/out Incr and For
+-- Incr is syntatic sugar for assignment and For is sugar for While loop
 data DietStatement = DAssign String Expression
                    | DIf Expression DietStatement DietStatement
                    | DWhile Expression DietStatement
@@ -84,8 +86,13 @@ data DietStatement = DAssign String Expression
                      deriving (Show, Eq)
 
 desugar :: Statement -> DietStatement
-desugar = undefined
-
+desugar (Assign a exp)          = DAssign a exp
+desugar (Incr a)                = DAssign a (Op (Var a) Plus (Val 1)) 
+desugar (If exp st1 st2)        = DIf exp (desugar st1) (desugar st2)
+desugar (While exp st)          = DWhile exp (desugar st)
+desugar (For st1 exp st2 st3)   = DWhile exp (DSequence (DSequence (desugar st1) (desugar st2)) (desugar st3))
+desugar (Sequence st1 st2)      = DSequence (desugar st1) (desugar st2)
+desugar (Skip)                  = DSkip
 
 -- Exercise 4 -----------------------------------------
 
