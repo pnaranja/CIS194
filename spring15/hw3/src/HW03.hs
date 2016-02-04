@@ -51,7 +51,7 @@ empty str = 0
 -- Results of "True" or "False" will be 1 or 0 respectively
 
 evalE :: State -> Expression -> Int
-evalE state (Var str) = 0
+evalE state (Var str) = state str
 evalE state (Val i) = i
 evalE state (Op exp1 Plus exp2)       = (evalE state exp1) + (evalE state exp2)
 evalE state (Op exp1 Minus exp2)      = (evalE state exp1) - (evalE state exp2)
@@ -90,7 +90,7 @@ desugar (Assign a exp)          = DAssign a exp
 desugar (Incr a)                = DAssign a (Op (Var a) Plus (Val 1)) 
 desugar (If exp st1 st2)        = DIf exp (desugar st1) (desugar st2)
 desugar (While exp st)          = DWhile exp (desugar st)
-desugar (For st1 exp st2 st3)   = DWhile exp (DSequence (DSequence st1 st3) st2) -- Assuming do st3 first and then "iterate"
+desugar (For st1 exp st2 st3)   = DWhile exp (DSequence (DSequence (desugar st1) (desugar st3)) (desugar st2)) -- Assuming do st3 first and then "iterate"
 desugar (Sequence st1 st2)      = DSequence (desugar st1) (desugar st2)
 desugar (Skip)                  = DSkip
 
@@ -99,16 +99,16 @@ desugar (Skip)                  = DSkip
 evalSimple :: State -> DietStatement -> State
 evalSimple state (DAssign str exp) 			= extend state str (evalE state exp)
 evalSimple state (DIf exp diet1 diet2) 
-    | (evalE state exp) == 1       			= evalSimple state diet1
+    | (evalE state exp) /= 0       			= evalSimple state diet1
     | otherwise                    			= evalSimple state diet2
 evalSimple state (DWhile exp diet)   
-    | (evalE state exp) == 1       			= evalSimple state diet
+    | (evalE state exp) /= 0       			= evalSimple state diet
     | otherwise                    			= state
 evalSimple state (DSequence diet1 diet2)    = evalSimple (evalSimple state diet1) diet2
 evalSimple state DSkip                      = state
 
 run :: State -> Statement -> State
-run = undefined
+run state statement                         = evalSimple state (desugar statement) 
 
 -- Programs -------------------------------------------
 
