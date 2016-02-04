@@ -97,7 +97,10 @@ desugar (Skip)                  = DSkip
 -- Exercise 4 -----------------------------------------
 
 evalSimple :: State -> DietStatement -> State
-evalSimple = undefined
+evalSimple state (DAssign str exp) = extend state str (evalE state exp)
+evalSimple state (DIf exp diet1 diet2) 
+    | (evalE state exp) == 1    = evalSimple state diet1
+    | otherwise                 = evalSimple state diet2
 
 run :: State -> Statement -> State
 run = undefined
