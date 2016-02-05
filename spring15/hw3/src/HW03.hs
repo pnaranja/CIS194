@@ -53,26 +53,25 @@ empty str = 0
 evalE :: State -> Expression -> Int
 evalE state (Var str) = state str
 evalE state (Val i) = i
-evalE state (Op exp1 Plus exp2)       = (evalE state exp1) + (evalE state exp2)
-evalE state (Op exp1 Minus exp2)      = (evalE state exp1) - (evalE state exp2)
-evalE state (Op exp1 Times exp2)      = (evalE state exp1) * (evalE state exp2)
+evalE state (Op exp1 Plus exp2)       = evalE state exp1 + evalE state exp2
+evalE state (Op exp1 Minus exp2)      = evalE state exp1 - evalE state exp2
+evalE state (Op exp1 Times exp2)      = evalE state exp1 * evalE state exp2
 evalE state (Op exp1 Divide exp2)     = div (evalE state exp1) (evalE state exp2)
 evalE state (Op exp1 Gt exp2)         
-    | (evalE state exp1) > (evalE state exp2)   = 1
+    | evalE state exp1 > evalE state exp2   = 1
     | otherwise                                 = 0
 evalE state (Op exp1 Ge exp2)         
-    | (evalE state exp1) >= (evalE state exp2)  = 1
+    | evalE state exp1 >= evalE state exp2  = 1
     | otherwise                                 = 0
 evalE state (Op exp1 Lt exp2)         
-    | (evalE state exp1) < (evalE state exp2)   = 1
+    | evalE state exp1 < evalE state exp2   = 1
     | otherwise                                 = 0
 evalE state (Op exp1 Le exp2)         
-    | (evalE state exp1) <= (evalE state exp2)  = 1
+    | evalE state exp1 <= evalE state exp2  = 1
     | otherwise                                 = 0
 evalE state (Op exp1 Eql exp2)        
-    | (evalE state exp1) == (evalE state exp2)  = 1
+    | evalE state exp1 == evalE state exp2  = 1
     | otherwise                                 = 0
-
 
 -- Exercise 3 -----------------------------------------
 
@@ -85,30 +84,44 @@ data DietStatement = DAssign String Expression
                    | DSkip
                      deriving (Show, Eq)
 
+
 desugar :: Statement -> DietStatement
 desugar (Assign a exp)          = DAssign a exp
 desugar (Incr a)                = DAssign a (Op (Var a) Plus (Val 1)) 
 desugar (If exp st1 st2)        = DIf exp (desugar st1) (desugar st2)
 desugar (While exp st)          = DWhile exp (desugar st)
-desugar (For st1 exp st2 st3)   = DWhile exp (DSequence (DSequence (desugar st1) (desugar st3)) (desugar st2)) -- Assuming do st3 first and then "iterate"
+
+-- Run st1 first then st3 and finally "iterate" (st2)
+desugar (For st1 exp st2 st3)   = DSequence (desugar st1) (DWhile exp (DSequence (desugar st3) (desugar st2))) 
+
 desugar (Sequence st1 st2)      = DSequence (desugar st1) (desugar st2)
 desugar (Skip)                  = DSkip
 
 -- Exercise 4 -----------------------------------------
+-- Evaluate the dietStatement.  Since evaluation of statements can change the State, pass in the State
+-- Return a new State
 
 evalSimple :: State -> DietStatement -> State
-evalSimple state (DAssign str exp) 			= extend state str (evalE state exp)
-evalSimple state (DIf exp diet1 diet2) 
-    | (evalE state exp) /= 0       			= evalSimple state diet1
-    | otherwise                    			= evalSimple state diet2
-evalSimple state (DWhile exp diet)   
-    | (evalE state exp) /= 0       			= evalSimple state diet
-    | otherwise                    			= state
-evalSimple state (DSequence diet1 diet2)    = evalSimple (evalSimple state diet1) diet2
-evalSimple state DSkip                      = state
+evalSimple state (DAssign str exp)           = extend state str (evalE state exp)
 
+evalSimple state (DIf exp dietst1 dietst2)
+    | evalE state exp /= 0                   = evalSimple state dietst1
+    | otherwise                              = evalSimple state dietst2
+
+evalSimple state (DWhile exp dietst)
+    | evalE state exp /= 0                   = evalSimple state (DSequence dietst (DWhile exp dietst))
+    | otherwise                              = state
+
+evalSimple state (DSequence dietst1 dietst2) = evalSimple (evalSimple state dietst1) dietst2
+evalSimple state DSkip                       = state
+
+
+-- Run a regular statement with current State and return new State
 run :: State -> Statement -> State
-run state statement                         = evalSimple state (desugar statement) 
+run state statement                          = evalSimple state (desugar statement)
+
+
+
 
 -- Programs -------------------------------------------
 
