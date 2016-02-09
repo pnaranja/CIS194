@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -Wall #-}
 module Golf where
 
-import Data.List (group, sort)
+import Data.List (sort, group)
 
 -- Given a list, output a list of lists
 -- Given list length n of the input, output list length n, n-1, n-2, ... lists
@@ -32,15 +32,30 @@ localMaxima (x:y:z:xs)
 -- ==========
 -- 0123456789
 histogram :: [Integer] -> String
-histogram = undefined
+histogram x = (concat $ reverse (revhistogram x)) ++ "==========\n0123456789\n"
 
--- Provide count of each Integer in the list
--- Example:
--- countIntElems [1,4,5,4,6,6,3,4,2,4,9]
--- [(1,1),(2,1),(3,1),(4,4),(5,1),(6,2),(9,1)]
-countIntElems :: [Integer] -> [(Integer,Int)]
-countIntElems lst = map (\n->(head n, length n)) $ group $ sort lst
+revhistogram :: [Integer] -> [String]
+revhistogram [] = []
+revhistogram x = histogramLine x : revhistogram (concat $ map reduceListByOne $ group $ sort x)
+
+-- Reduce contents of list by 1
+reduceListByOne :: [Integer] -> [Integer]
+reduceListByOne []     = []
+reduceListByOne [_]    = []
+reduceListByOne (_:xs) = xs
+
+-- Create histogram line
+histogramLine :: [Integer] -> String
+histogramLine lst = foldr1 mergeStars (map putStarPos lst) ++ "\n"
 
 -- Puts the star in the correct position number
-putStarPos :: Int -> String
-putStarPos n = replicate n ' ' ++ "*" ++ replicate (9-n) ' '
+putStarPos :: Integer -> String
+putStarPos n = replicate (fromIntegral n) ' ' ++ "*" ++ replicate (fromIntegral (9-n)) ' '
+
+-- Combine star strings
+mergeStars :: String -> String -> String
+mergeStars x []                     = x
+mergeStars [] y                     = y
+mergeStars (x:xs) (y:ys)
+    | (x=='*') || (y=='*')          = '*' : mergeStars xs ys
+    | otherwise                     = ' ' : mergeStars xs ys
