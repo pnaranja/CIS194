@@ -12,4 +12,9 @@ skips (x:xs) = (x:xs) : skips xs
 -- The localMaxima is defined as an element in the list that is greater than both elements
 -- before and after it.
 localMaxima :: [Integer] -> [Integer]
-localMaxima = undefined
+localMaxima [] = []
+localMaxima [_] = []
+localMaxima [_,_] = []
+localMaxima (x:y:z:xs)
+    | y>x && y>z    = y : localMaxima (z:xs)
+    | otherwise     = localMaxima (y:z:xs)
