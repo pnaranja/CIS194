@@ -60,3 +60,26 @@ foobar (x:xs)
 -- We're just filtering elems >3, applying a function to the elems and summing them
 foobar' :: [Integer] -> Integer
 foobar' = sum . map (\x->7*x+2) . filter (>3)
+
+
+-- Folds --
+sum' :: [Integer] -> Integer
+sum' []     = 0
+sum' (x:xs) = x + sum' xs
+
+product' :: [Integer] -> Integer
+product' []     = 0
+product' (x:xs) = x + product' xs
+
+length' :: [Integer] -> Integer
+length' []     = 0
+length' (_:xs) = 1 + length' xs
+
+myFoldr a f [x,y,z] = f x (f y (f z a))
+
+-- Works only with List length of 3!
+sum''      = myFoldr 0 (+)
+product''  = myFoldr 1 (*)
+length''   = myFoldr 0 (\_ x -> 1+x) -- (\_ x -> 1+x)  :: Num a => r -> a -> a
+length'''  = myFoldr 0 (\_-> (1+))   -- (\_ -> (1+))   :: Num a => r -> a -> a
+length'''' = myFoldr 0 (const (1+))  -- (const (1+))   :: Num a => b -> a -> a
