@@ -14,4 +14,7 @@ fun2 n
  | even n    = n + fun2 (div n 2)
  | otherwise = fun2 (3*n+1)
 
+-- if 1 then 0 else n
+-- if even sum with itself and fun2 (div n 2) else fun2 (3n+1)
+-- takeWhile n\=1 ???
 fun2' = undefined
