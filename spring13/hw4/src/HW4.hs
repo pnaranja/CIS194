@@ -16,5 +16,8 @@ fun2 n
 
 -- if 1 then 0 else n
 -- if even sum with itself and fun2 (div n 2) else fun2 (3n+1)
--- takeWhile n\=1 ???
-fun2' = undefined
+-- Use iterate to create the array to apply function depending on even or odd
+-- Stop when 1 is found
+-- Since iterate inserts the first x, check if that value is odd.  If so, take the tail
+-- Sum all values in the array
+fun2' n = sum $ (\x-> if odd (head x) then tail x else x) $ takeWhile (/=1) $ iterate (\x-> if odd x then 3*x+1 else div x 2) n
