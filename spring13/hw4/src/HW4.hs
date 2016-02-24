@@ -18,6 +18,6 @@ fun2 n
 -- if even sum with itself and fun2 (div n 2) else fun2 (3n+1)
 -- Use iterate to create the array to apply function depending on even or odd
 -- Stop when 1 is found
--- Since iterate inserts the first x, check if that value is odd.  If so, take the tail
+-- Given the algorithm, only accepts even numbers!  Filter out odd numbers in the array
 -- Sum all values in the array
-fun2' n = sum $ (\x-> if odd (head x) then tail x else x) $ takeWhile (/=1) $ iterate (\x-> if odd x then 3*x+1 else div x 2) n
+fun2' n = sum $ filter even $ takeWhile (/=1) $ iterate (\x-> if odd x then 3*x+1 else div x 2) n
