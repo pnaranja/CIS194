@@ -1,5 +1,6 @@
 module HW4 where
 
+-- Exercise 1
 fun1 :: [Integer] -> Integer
 fun1 []      = 1
 fun1 (x:xs)
@@ -20,4 +21,36 @@ fun2 n
 -- Stop when 1 is found
 -- Given the algorithm, only accepts even numbers!  Filter out odd numbers in the array
 -- Sum all values in the array
-fun2' n = sum $ filter even $ takeWhile (/=1) $ iterate (\x-> if odd x then 3*x+1 else div x 2) n
+fun2' = sum . filter even . takeWhile (/=1) . iterate (\x-> if odd x then 3*x+1 else div x 2)
+
+
+-- Exercise 2
+-- Height of btree is length of path from root to deepest node
+-- Balanced btree if left and right subtrees differ by <= 1
+
+data Tree a = Leaf
+            | Node Integer (Tree a) a (Tree a)
+    deriving (Show,Eq)
+
+-- Balance a btree using foldr
+-- Example:
+-- foldTree "ABCDEFGHIJ" ==
+-- Node 3
+-- (Node 2
+-- (Node 0 Leaf ’F’ Leaf)
+-- ’I’
+-- (Node 1 (Node 0 Leaf ’B’ Leaf) ’C’ Leaf))
+-- ’J’
+-- (Node 2
+-- (Node 1 (Node 0 Leaf ’A’ Leaf) ’G’ Leaf)
+-- ’H’
+-- (Node 1 (Node 0 Leaf ’D’ Leaf) ’E’ Leaf))
+
+foldTree :: [a] -> Tree a
+foldTree = undefined
+
+insertTree :: Ord a => a -> Tree a -> Tree a
+insertTree x Leaf                       = Node 0 Leaf x Leaf
+insertTree x (Node nodenum Leaf n Leaf)
+    | x>n                               = Node (nodenum+1) Leaf n (insertTree x Leaf)
+    | otherwise                         = Node (nodenum+1) (insertTree x Leaf) n Leaf
