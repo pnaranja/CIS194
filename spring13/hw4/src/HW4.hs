@@ -51,6 +51,6 @@ foldTree = undefined
 
 insertTree :: Ord a => a -> Tree a -> Tree a
 insertTree x Leaf                       = Node 0 Leaf x Leaf
-insertTree x (Node nodenum Leaf n Leaf)
-    | x>n                               = Node (nodenum+1) Leaf n (insertTree x Leaf)
-    | otherwise                         = Node (nodenum+1) (insertTree x Leaf) n Leaf
+insertTree x (Node nodenum branch1 n branch2)
+    | x>n                               = Node (nodenum+1) branch1 n (insertTree x branch2)
+    | otherwise                         = Node (nodenum+1) (insertTree x branch1) n branch2
