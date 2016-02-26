@@ -47,8 +47,8 @@ data Tree a = Leaf
 -- ’H’
 -- (Node 1 (Node 0 Leaf ’D’ Leaf) ’E’ Leaf))
 
-foldTree :: [a] -> Tree a
-foldTree = undefined
+foldTree :: Ord a => [a] -> Tree a
+foldTree = foldr insertTree Leaf
 
 heightTree :: Tree a -> Integer
 heightTree Leaf                        =  0
@@ -63,7 +63,6 @@ insertTree :: Ord a => a -> Tree a -> Tree a
 insertTree x Leaf                              =  Node 0 Leaf x Leaf
 insertTree x (Node nodenum Leaf n Leaf)        =  Node (nodenum+1) Leaf n (insertTree x Leaf)
 insertTree x (Node nodenum Leaf n branch2)     =  Node nodenum (insertTree x Leaf) n branch2
-insertTree x (Node nodenum branch1 n Leaf)     =  Node nodenum branch1 n (insertTree x Leaf)
 
 insertTree x (Node nodenum branch1 n branch2)
     | hbranch1 >= hbranch2 && balancedTrees    =  Node (nodenum+1) branch1 n (insertTree x branch2)
