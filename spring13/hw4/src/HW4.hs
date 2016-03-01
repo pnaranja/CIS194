@@ -57,7 +57,7 @@ heightTree (Node _ branch1 _ branch2)  =  1 + max (heightTree branch1) (heightTr
 
 balancedTree :: Tree a -> Bool
 balancedTree Leaf                        =  True
-balancedTree (Node _ branch1 _ branch2)  =  (abs ((heightTree branch1) - (heightTree branch1)) <= 1) && balancedTree branch1 && balancedTree branch2
+balancedTree (Node _ branch1 _ branch2)  =  (abs ((heightTree branch1) - (heightTree branch2)) <= 1) && balancedTree branch1 && balancedTree branch2
 
 insertTree :: Ord a => a -> Tree a -> Tree a
 insertTree x Leaf                              =  Node 0 Leaf x Leaf
@@ -65,7 +65,7 @@ insertTree x (Node nodenum Leaf n Leaf)        =  Node (nodenum+1) Leaf n (inser
 insertTree x (Node nodenum Leaf n branch2)     =  Node nodenum (insertTree x Leaf) n branch2
 
 insertTree x (Node nodenum branch1 n branch2)
-    | hbranch1 >= hbranch2 && balancedTrees    =  Node (nodenum+1) branch1 n (insertTree x branch2)
+    | (hbranch1 >= hbranch2) && balancedTrees    =  Node (nodenum+1) branch1 n (insertTree x branch2)
     | otherwise                                =  Node nodenum (insertTree x branch1) n branch2
         where
             hbranch1                           =  heightTree branch1
