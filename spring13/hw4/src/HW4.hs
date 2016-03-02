@@ -75,3 +75,15 @@ insertTree x (Node nodenum branch1 n branch2)
             hbranch2                           =  heightTree branch2
             balancedTrees                      =  balancedTree branch1 && balancedTree branch2
             newHeight                          =  heightTree (Node nodenum branch1 n (insertTree x branch2))
+
+
+-- Exercise 3
+-- xor - Return True if odd # of True values
+-- Need to use fold
+xor :: [Bool] -> Bool
+--xor = odd . length . filter (==True) 
+xor = odd . foldl (\x y -> x + ((\y'->if y' then 1 else 0) y)) 0
+
+-- implement map using foldr
+map' :: (a -> b) -> [a] -> [b]
+map' = undefined
