@@ -25,7 +25,7 @@ fun2' = sum . filter even . takeWhile (/=1) . iterate (\x-> if odd x then 3*x+1 
 
 
 -- Exercise 2
--- Height of btree is length of path from root to deepest node
+-- Height of btree is length of path from root to deepest node (non-Leaf)
 -- Balanced btree if left and right subtrees differ by <= 1
 -- NOTE: Does NOT NEED to be in order!  Just balanced!
 
@@ -48,26 +48,30 @@ data Tree a = Leaf
 -- (Node 1 (Node 0 Leaf ’D’ Leaf) ’E’ Leaf))
 
 foldTree :: Ord a => [a] -> Tree a
-foldTree = foldr insertTree Leaf
+foldTree                                       =  foldr insertTree Leaf
 
 heightTree :: Tree a -> Integer
-heightTree Leaf                        =  0
-heightTree (Node _ Leaf _ Leaf)        =  1
-heightTree (Node _ branch1 _ branch2)  =  1 + max (heightTree branch1) (heightTree branch2)
+heightTree Leaf                                =  0
+heightTree (Node _ Leaf _ Leaf)                =  0
+heightTree (Node _ branch1 _ branch2)          =  1 + max (heightTree branch1) (heightTree branch2)
 
 balancedTree :: Tree a -> Bool
-balancedTree Leaf                        =  True
-balancedTree (Node _ branch1 _ branch2)  =  (abs ((heightTree branch1) - (heightTree branch2)) <= 1) && balancedTree branch1 && balancedTree branch2
+balancedTree Leaf                              =  True
+balancedTree (Node _ branch1 _ branch2)        =  (abs ((heightTree branch1) - (heightTree branch2)) <= 1) && balancedTree branch1 && balancedTree branch2
 
 insertTree :: Ord a => a -> Tree a -> Tree a
 insertTree x Leaf                              =  Node 0 Leaf x Leaf
-insertTree x (Node nodenum Leaf n Leaf)        =  Node (nodenum+1) Leaf n (insertTree x Leaf)
+
+insertTree x (Node nodenum Leaf n Leaf)        =  Node newHeight Leaf n (insertTree x Leaf)
+    where newHeight                            =  heightTree (Node nodenum Leaf n (insertTree x Leaf))
+
 insertTree x (Node nodenum Leaf n branch2)     =  Node nodenum (insertTree x Leaf) n branch2
 
 insertTree x (Node nodenum branch1 n branch2)
-    | (hbranch1 >= hbranch2) && balancedTrees    =  Node (nodenum+1) branch1 n (insertTree x branch2)
+    | (hbranch1 >= hbranch2) && balancedTrees  =  Node newHeight branch1 n (insertTree x branch2)
     | otherwise                                =  Node nodenum (insertTree x branch1) n branch2
         where
             hbranch1                           =  heightTree branch1
             hbranch2                           =  heightTree branch2
             balancedTrees                      =  balancedTree branch1 && balancedTree branch2
+            newHeight                          =  heightTree (Node nodenum branch1 n (insertTree x branch2))
