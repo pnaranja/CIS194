@@ -86,4 +86,7 @@ xor = odd . foldl (\x y -> x + ((\y'->if y' then 1 else 0) y)) 0
 
 -- implement map using foldr
 map' :: (a -> b) -> [a] -> [b]
-map' = undefined
+map' f = foldr (\a b -> f a : b) [] 
+
+-- Implement foldl using foldr
+foldl' f base xs = foldr (\a b -> f b a) base xs 
