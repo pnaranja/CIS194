@@ -90,3 +90,13 @@ map' f = foldr (\a b -> f a : b) []
 
 -- Implement foldl using foldr
 foldl' f base xs = foldr (\a b -> f b a) base xs 
+
+
+-- Exercise 4
+-- Implement "Sieve of Sundaram" using functional composition
+-- Given n, generate all odd prime numbers up to 2n+2
+sieveSundaram :: Integer -> [Integer]
+sieveSundaram = undefined
+
+cartProd :: [a] -> [b] -> [(a,b)]
+cartProd xs ys = [ (x,y) | x <- xs, y <- ys]
