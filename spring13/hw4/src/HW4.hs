@@ -1,4 +1,5 @@
 module HW4 where
+import Data.List
 
 -- Exercise 1
 fun1 :: [Integer] -> Integer
@@ -95,8 +96,12 @@ foldl' f base xs = foldr (\a b -> f b a) base xs
 -- Exercise 4
 -- Implement "Sieve of Sundaram" using functional composition
 -- Given n, generate all odd prime numbers up to 2n+2
-sieveSundaram :: Integer -> [Integer]
-sieveSundaram = undefined
 
-cartProd :: [a] -> [b] -> [(a,b)]
-cartProd xs ys = [ (x,y) | x <- xs, y <- ys]
+sieveSundaram :: Integer -> [Integer]
+sieveSundaram = calcRemaining . (\n->(\\) [1..n] (numsToRemove n))
+
+calcRemaining :: [Integer] -> [Integer]
+calcRemaining = map ((+1) . (*2))
+
+numsToRemove :: Integer -> [Integer]
+numsToRemove n = [ i+j+(2*i*j) | i<-[1..n], j<-[1..n], 1<=i, i<=j, i+j+(2*i*j) <= n] 
