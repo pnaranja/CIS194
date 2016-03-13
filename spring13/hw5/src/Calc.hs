@@ -4,15 +4,20 @@ import Parser
 
 import Data.Maybe
 
+-- Exercise 1
 eval :: ExprT -> Integer
 eval (Lit x)    =  x
 eval (Add x y)  =  eval x + eval y
 eval (Mul x y)  =  eval x * eval y
-            
-evalStr :: String -> Maybe Integer
-evalStr = handleMaybe . parseExp Lit Add Mul 
 
-handleMaybe :: Maybe a -> Maybe Integer
-handleMaybe (Just a) = Just (eval a)
-handleMaybe Nothing = Nothing
+-- Exercise 2
+-- Use fmap <$>, to map the eval function to the result of parseExp
+evalStr :: String -> Maybe Integer
+evalStr x = eval <$> parseExp Lit Add Mul x
+
+-- Exercise 3
+class Expr a where
+    lit :: a -> a
+    add :: a -> a -> a
+    mul :: a -> a -> a
 
