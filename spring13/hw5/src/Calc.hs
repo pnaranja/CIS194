@@ -3,6 +3,7 @@
 module Calc where
 import ExprT
 import Parser
+import qualified StackVM as S
 
 import Data.Maybe
 
@@ -55,3 +56,6 @@ instance Expr Mod7 where
 
 testExpr :: Expr a => Maybe a
 testExpr = parseExp lit add mul "(3 * -4) + 5"
+
+-- Exercise 5
+-- Build Calculator that emits new assembly language
