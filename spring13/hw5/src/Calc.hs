@@ -1,3 +1,4 @@
+{-# LANGUAGE TypeSynonymInstances #-}
 {-# Language FlexibleInstances #-}
 
 module Calc where
@@ -59,3 +60,8 @@ testExpr = parseExp lit add mul "(3 * -4) + 5"
 
 -- Exercise 5
 -- Build Calculator that emits new assembly language
+instance Expr S.Program where
+    lit x    =  [S.PushI x]
+    add x y  =  x ++ y ++ [S.Add] -- Combine two "Programs" and then add "Add"?
+    mul x y  =  x ++ y ++ [S.Mul] -- Combine two "Programs" and then add "Multiply"?
+
