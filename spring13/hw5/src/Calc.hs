@@ -66,8 +66,4 @@ instance Expr S.Program where
     mul x y  =  x ++ y ++ [S.Mul] -- Combine two "Programs" and then add "Multiply"?
 
 compile :: String -> Maybe S.Program
-compile = undefined
-
-evalExpr :: (Expr a) => String -> Maybe a
-evalExpr = parseExp lit add mul 
-
+compile = parseExp lit add mul
