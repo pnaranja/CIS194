@@ -5,6 +5,7 @@ module Lecture6 where
 -- Side effect: Anything that causes evaluation of an expression to interact something outside itself
 --
 -- A "thunk" - an unevaluated expression
+f :: Num a => a -> t -> a
 f x y = x + 5
 throwAwayThunk = f 5 (29^345656) -- The value 29^345656 is thunk that is not used
 
@@ -29,3 +30,22 @@ t1 = foldl (+) 0 [1,2,3]
 -- It's a problem when the list is long
 -- Use strict evaluation using foldl'
 t2 = foldl' (+) 0 [1,2,3]
+    where
+        foldl' :: (a -> b -> a) -> a -> [b] -> a
+        foldl' _ z [] = z
+        foldl' f' z (x:xs) = let z' = f' z x in z' `seq` foldl' f' z' xs
+
+-- Shortcircuiting operators
+-- || and && can be shortcircuited in Strict evaluation
+-- You can do this Haskell too!
+myAndOp :: Bool -> Bool -> Bool
+myAndOp True x   =  x
+myAndOp False _  =  False
+
+-- User defined control structures
+if' :: Bool -> a -> a -> a
+if' True x _ = x
+if' False _ y = y
+
+-- Infinite data structures
+a1 = take 2 $ repeat 5
