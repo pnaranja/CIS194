@@ -20,3 +20,12 @@ f2 Nothing = []
 f2 (Just x) = [x]
 
 takeRepeat = take 3 . repeat 
+
+-- Consequences of Lazy Evaluation
+-- Forces you to be Pure
+-- Understanding space usage
+t1 = foldl (+) 0 [1,2,3]
+-- Acc is not demanded until recursing the entire list --> ( ( (0+1) + 2) + 3)
+-- It's a problem when the list is long
+-- Use strict evaluation using foldl'
+t2 = foldl' (+) 0 [1,2,3]
