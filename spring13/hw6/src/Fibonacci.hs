@@ -1,6 +1,7 @@
-module Lib
-    ( someFunc
-    ) where
+module Fibonacci
+    where
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+fib :: Integer -> Integer
+fib 0 = 0
+fib 1 = 1
+fib x = fib (x-1) + fib (x-2)
