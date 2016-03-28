@@ -23,3 +23,9 @@ fib' n = xs ++ [xs !! fromInteger (n-2) + xs !! fromInteger (n-1)]
 fib2 :: [Integer]
 fib2 = map (last . fib') [0..]
 
+-- Exercise 3
+-- Create data type stream and convert stream to List
+data Stream a = Cons a (Stream a)
+
+streamToList :: Stream a -> [a]
+streamToList = undefined
