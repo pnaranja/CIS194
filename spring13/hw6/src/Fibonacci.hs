@@ -28,4 +28,7 @@ fib2 = map (last . fib') [0..]
 data Stream a = Cons a (Stream a)
 
 streamToList :: Stream a -> [a]
-streamToList = undefined
+streamToList (Cons a b) = a : streamToList b
+
+instance Show a => Show (Stream a) where
+    show (Cons a b) = concatMap show (take 20 (streamToList (Cons a b))) 
