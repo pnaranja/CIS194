@@ -31,7 +31,7 @@ streamToList :: Stream a -> [a]
 streamToList (Cons a b) = a : streamToList b
 
 instance Show a => Show (Stream a) where
-    show (Cons a b) = concatMap show (take 20 (streamToList (Cons a b))) 
+    show (Cons a b) = concatMap (\x-> show x ++ " ") (take 20 (streamToList (Cons a b))) 
 
 -- Exercise 4
 -- Write functions streamRepeat, streamMap and streamFromSeed
@@ -42,4 +42,9 @@ streamMap :: (a->b) -> Stream a -> Stream b
 streamMap f (Cons a b) = Cons (f a) (streamMap f b)
 
 streamFromSeed :: (a->a) -> a -> Stream a
-streamFromSeed f a = Cons (f a) (streamFromSeed f a)
+streamFromSeed f a = Cons (f a) (streamFromSeed f (f a))
+
+-- Exercise 5
+-- Define stream of Natural Numbers and the "ruler function"
+nats :: Stream Integer
+nats = streamFromSeed (+1) 0
