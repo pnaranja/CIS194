@@ -32,3 +32,14 @@ streamToList (Cons a b) = a : streamToList b
 
 instance Show a => Show (Stream a) where
     show (Cons a b) = concatMap show (take 20 (streamToList (Cons a b))) 
+
+-- Exercise 4
+-- Write functions streamRepeat, streamMap and streamFromSeed
+streamRepeat :: a -> Stream a
+streamRepeat a  = Cons a (streamRepeat a)
+
+streamMap :: (a->b) -> Stream a -> Stream b
+streamMap f (Cons a b) = Cons (f a) (streamMap f b)
+
+streamFromSeed :: (a->a) -> a -> Stream a
+streamFromSeed = undefined
