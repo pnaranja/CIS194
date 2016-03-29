@@ -42,4 +42,4 @@ streamMap :: (a->b) -> Stream a -> Stream b
 streamMap f (Cons a b) = Cons (f a) (streamMap f b)
 
 streamFromSeed :: (a->a) -> a -> Stream a
-streamFromSeed = undefined
+streamFromSeed f a = Cons (f a) (streamFromSeed f a)
