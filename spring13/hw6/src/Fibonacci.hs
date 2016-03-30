@@ -45,6 +45,6 @@ streamFromSeed :: (a->a) -> a -> Stream a
 streamFromSeed f a = Cons (f a) (streamFromSeed f (f a))
 
 -- Exercise 5
--- Define stream of Natural Numbers and the "ruler function"
+-- Define a stream of natural numbers and the "ruler function"
 nats :: Stream Integer
 nats = streamFromSeed (+1) 0
