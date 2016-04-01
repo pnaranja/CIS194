@@ -55,5 +55,7 @@ nats  =  streamFromSeed (+1) 0
 -- Ruler function output: 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, . . .
 -- nth element (starting with n=1), is largest power of 2 which evenly divides n 
 -- Example: n=1 1/2^0; n=2 2/2^1; n=3 3/2^0; n=4 4/2^2; n=5 5/2^0; n=6 6/2^1; n=7 7/2^0; n=8 8/2^3
+-- Patterns are 0,1,0,2,0,1 and 0,3,0,4
 ruler :: Stream Integer
+ruler = undefined
 
