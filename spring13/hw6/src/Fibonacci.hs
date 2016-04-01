@@ -57,5 +57,11 @@ nats  =  streamFromSeed (+1) 0
 -- Example: n=1 1/2^0; n=2 2/2^1; n=3 3/2^0; n=4 4/2^2; n=5 5/2^0; n=6 6/2^1; n=7 7/2^0; n=8 8/2^3
 -- Patterns are 0,1,0,2,0,1 and 0,3,0,4
 ruler :: Stream Integer
-ruler = undefined
+ruler = interLeaveStream interLeave012 interLeave03
+    where
+        interLeave012 = interLeaveStream (streamRepeat 0) (interLeaveStream (streamRepeat 1) (streamRepeat 2))
+        interLeave03 = interLeaveStream (streamRepeat 0) (streamRepeat 3)
+
+interLeaveStream :: Stream a -> Stream a -> Stream a
+interLeaveStream (Cons a a') (Cons b b') = Cons a (Cons b (interLeaveStream a' b'))
 
